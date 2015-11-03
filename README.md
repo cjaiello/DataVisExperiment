@@ -21,7 +21,7 @@ If you choose to do so, give a one sentence description of what each teammate co
 Requirements
 ---
 
-- Look it over Cleveland and McGill's original experiment (see the section below) and [watch this video]() to get a sense of the experiment structure and where your visualizations will go.
+- Look it over Cleveland and McGill's original experiment (see the section below) and [watch this video](a5.mp4) to get a sense of the experiment structure and where your visualizations will go.
 - When viewing the example experiment video, note the following:
     - Trials are in random order.  
     - Each trial has a randomly generated set of 10 data points.  
@@ -75,7 +75,7 @@ __Log-base-2 or "cm-error"__: The true percent is the actual percentage of the s
 Cleveland and McGill recognized that their analyses would be biased if they took `abs(ReportedPercent – TruePercent)` as their score for error. 
 To compensate, they came up with a logarithmic scale for error with this equation:
 
-![cleveland error](img/cleveland-error.png)
+![cleveland equation](img/cleveland-equation.png)
 
 You’ll be implementing this error score as part of the lab. 
 (Hint: it’s not a trick question, this is just to familiarize you with the experiment protocol). 
