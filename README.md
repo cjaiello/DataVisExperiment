@@ -11,6 +11,15 @@ Christina Aiello, cjaiello
 
 
 
+------------------------------ Visualizations Tested and the Results (Best to Worst, Ranked by Average Error) ------------------------------
+
+
+!!! Use Bootstrapped 95\% confidence intervals for your error upper and lower bounds. Include these in your figures.
+
+!!! Include example images of each visualization as they appeared in your experiment (i.e. if you used a pie chart show the actual pie chart you used in the experiment along with the markings, not an example from Google Images).
+
+
+
 
 ------------------------------ Technical Achievements ------------------------------
 
