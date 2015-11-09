@@ -149,6 +149,18 @@
       .substring(1);
   }
 
+  // This function will combine the results from all trials into one array
+  function combineAllResults() {
+    var allDataArray = [];
+    for(counter = 1; counter <= 60; counter++){
+      var trialToGet = 'results-' + counter;
+      var trialValues = sessionStorage.getItem(trialToGet);
+      // Store these trial values in this final array:
+      allDataArray[counter-1] = trialValues;
+    }
+    return allDataArray;
+  }
+
   // Constructing GUID.
   // Reference: http://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
   function guid() {
