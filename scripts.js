@@ -1,4 +1,6 @@
  // Author: Christina Aiello, 11/9/2015
+
+  // Function called when application is first loaded
   function begin(){
     // Generate random ID for the person
     var uuid = guid();
@@ -108,21 +110,25 @@
 
     // Array holds: UUID, trialNumber, visualizationType, truePercent, reportedPercent, error
     resultsArray[trialNumber] = [sessionStorage.getItem('uuid'), sessionStorage.getItem('trialNumber'), visualizationType, actualRatio, usersRatio, logBase2Error]
-    console.log("Results array was: " + resultsArray[trialNumber]);
+    console.log("Results array addition: " + resultsArray[trialNumber]);
+    console.log("Entirety of results array is: " + resultsArray);
 
     // Saving this results array in the session:
     sessionStorage.setItem('results', resultsArray);
 
     // Increasing the trial number in the session:
-    increasedTrialNumber = trialNumber++;
-    sessionStorage.setItem('trialNumber', increasedTrialNumber);
+    trialNumber = parseInt(trialNumber) + 1;
+    sessionStorage.setItem('trialNumber', trialNumber);
+    console.log("Trial number is now: " + trialNumber);
 
     // If we've done 60 trials, then we're done.
     // Open the final page:
-    /*if(increasedTrialNumber > 60){
+    if(trialNumber > 60){
       // Open the ending page:
       window.open("end.html","_self");
-    }*/
+    } else {
+      location.reload();
+    }
   }
 
   // Generating four values for GUID.
