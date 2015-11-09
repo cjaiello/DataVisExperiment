@@ -1,3 +1,5 @@
+ // Author: Christina Aiello, 11/9/2015
+
  /*
   * This function will generate ten random numbers between
   * 1 and maxNumber. It returns them as an array. Numbers CAN be
