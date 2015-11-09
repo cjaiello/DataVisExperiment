@@ -109,12 +109,20 @@
     var resultsArray = [];
 
     // Array holds: UUID, trialNumber, visualizationType, truePercent, reportedPercent, error
-    resultsArray[trialNumber] = [sessionStorage.getItem('uuid'), sessionStorage.getItem('trialNumber'), visualizationType, actualRatio, usersRatio, logBase2Error]
-    console.log("Results array addition: " + resultsArray[trialNumber]);
-    console.log("Entirety of results array is: " + resultsArray);
+    resultsArray = [sessionStorage.getItem('uuid'), sessionStorage.getItem('trialNumber'), visualizationType, actualRatio, usersRatio, logBase2Error]
+    console.log("Results array addition: " + resultsArray);
 
     // Saving this results array in the session:
-    sessionStorage.setItem('results', resultsArray);
+    sessionStorage.setItem('results-' + trialNumber, resultsArray);
+
+    // Let's see what we have so far:
+    console.log("Entirety of results array is:");
+    for(counter = 1; counter <= trialNumber; counter++){
+      var trialToGet = 'results-' + counter;
+      console.log(trialToGet);
+      var pastValue = sessionStorage.getItem(trialToGet);
+      console.log(pastValue);
+    }
 
     // Increasing the trial number in the session:
     trialNumber = parseInt(trialNumber) + 1;
@@ -127,7 +135,9 @@
       // Open the ending page:
       window.open("end.html","_self");
     } else {
-      location.reload();
+      setTimeout(function(){
+        location.reload();
+      }, 20000);
     }
   }
 
