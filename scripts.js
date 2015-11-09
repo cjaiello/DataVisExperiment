@@ -1,5 +1,4 @@
  // Author: Christina Aiello, 11/9/2015
-
   function begin(){
     // Generate random ID for the person
     var uuid = guid();
@@ -80,28 +79,69 @@
   }
 
   // This function will continue the user to the next page
-  function continue(visualizationType){
+  function continueToNextVisualization(visualizationType){
     // Looking at the user's answer:
-    var firstNumberInRatio = document.getElementById("firstNumberInRatio");
-    var secondNumberInRatio = document.getElementById("secondNumberInRatio");
-    var usersRatio = firstNumberInRatio/secondNumberInRatio;
+    var usersRatio = document.getElementById("percentage").value;
+    console.log("User's ratio is: " + usersRatio);
     // Looking at the actual answer:
     var firstCorrectNumber = document.getElementById("firstCorrectNumber").innerHTML;
     var secondCorrectNumber = document.getElementById("secondCorrectNumber").innerHTML;
-    var actualRatio = firstCorrectNumber/secondCorrectNumber;
-
+    // Depending on which is larger, set that as the numerator:
+    if(firstCorrectNumber < secondCorrectNumber){
+      var actualRatio = Math.ceil((firstCorrectNumber/secondCorrectNumber) * 100);
+    } else {
+      var actualRatio = Math.ceil((secondCorrectNumber/firstCorrectNumber) * 100);
+    }
+    console.log("Actual ratio is: " + actualRatio);
+    
     // Calculating log base 2 error
-    var logBase2Error = (log(abs(usersRatio - actualRatio)+(1/8)))/(log(2));
-    return logBase2Error;
-
-    // Getting current trial number
+    var ratio = usersRatio - actualRatio;
+    var absoluteValueOfRatio = Math.abs(ratio);
+    var addOneEighth = absoluteValueOfRatio+(1/8);
+    var logOfAnswer = Math.log(addOneEighth);
+    var logOfTwo = Math.log(2);
+    var logBase2Error = (logOfAnswer/logOfTwo);
+    console.log("Log base 2 of error is: " + logBase2Error);
+    
+    // Getting current trial number:
     trialNumber = sessionStorage.getItem('trialNumber');
+    console.log("Trial Number was: " + trialNumber);
     
     //Saving this information in a multidimensonal array:
-    var resultsArray = [sessionStorage.getItem('uuid'), sessionStorage.getItem('trialNumber'), visualizationType, actualRatio, usersRatio]
+    var resultsArray = [];
 
-    // Increasing the trial number
-    sessionStorage.setItem('trialNumber', trialNumber + 1)
+    // Array holds: UUID, trialNumber, visualizationType, truePercent, reportedPercent, error
+    resultsArray[trialNumber] = [sessionStorage.getItem('uuid'), sessionStorage.getItem('trialNumber'), visualizationType, actualRatio, usersRatio, logBase2Error]
+    console.log("Results array was: " + resultsArray[trialNumber]);
+
+    // Saving this results array in the session:
+    sessionStorage.setItem('results', resultsArray);
+
+    // Increasing the trial number in the session:
+    increasedTrialNumber = trialNumber++;
+    sessionStorage.setItem('trialNumber', increasedTrialNumber);
+
+    // If we've done 60 trials, then we're done.
+    // Open the final page:
+    /*if(increasedTrialNumber > 60){
+      // Open the ending page:
+      window.open("end.html","_self");
+    }*/
+  }
+
+  // Generating four values for GUID.
+  // Reference: http://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
+  function generateGuidValues() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+
+  // Constructing GUID.
+  // Reference: http://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
+  function guid() {
+    return generateGuidValues() + generateGuidValues() + '-' + generateGuidValues() + '-' + generateGuidValues() + '-' +
+      generateGuidValues() + '-' + generateGuidValues() + generateGuidValues() + generateGuidValues();
   }
 
   // This function will specifically build a bar chart visualization

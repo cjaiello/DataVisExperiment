@@ -1,5 +1,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
 <script src="scripts.js" charset="utf-8"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+
 
 <style>
 /* Title of Page */
@@ -53,6 +56,10 @@ body {
   width: 600px;
 }
 
+#secondCorrectNumber, #firstCorrectNumber{
+  visibility: hidden;
+}
+
 </style>
 
 <body>
@@ -64,25 +71,19 @@ body {
     <div class="question">
       <br>
       <strong>Question:</strong>
-      What is the ratio of the first item marked with an asterisk (*) to the second item marked with an asterisk?
       <br>
-      Ratios do not need to be simplified, so '2 to 5' is the same as '4 to 10' and '40 to 100'. Use whatever size numbers you are most comfortable with.
-      <br><br>
-      <strong>Directions:</strong>
-      Type the first number into the first box, and type the second number into the second box.
+      Make note of the two bars marked with asterisks (*). What percentage is the smaller bar of the larger bar?
+      <br>
+      Please use whole numbers (ex, 25, 67, 99, etc.). Thank you!
       <br>
       Once you are done, please click the submit button to move to the next graph.
-      <br>
-      <i>
-        Please write your ratio in the format 'NUMBER to NUMBER', for example: 3 to 5, 1 to 2, 16 to 55, etc.
-      </i>
       <br><br>
-      <input type="text" id="firstNumberInRatio" size="1" maxlength="1"></input> to <input type="text" id="secondNumberInRatio" size="1" maxlength="1"></input><button onClick="continue()" class="leftMargin">Submit</button>
+      <input type="text" id="percentage" size="1" maxlength="2"></input><button onClick="continueToNextVisualization('bar')" class="leftMargin">Submit</button>
     </div>
   </div>
 
-  <div visibility="none" id="firstCorrectNumber"></div>
-  <div visibility="none" id="secondCorrectNumber"></div>
+  <div id="firstCorrectNumber"></div>
+  <div id="secondCorrectNumber"></div>
 
 <script>
     // Build outer visualization
