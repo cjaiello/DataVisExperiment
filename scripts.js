@@ -1,5 +1,19 @@
  // Author: Christina Aiello, 11/9/2015
 
+  function begin(){
+    // Generate random ID for the person
+    var uuid = guid();
+
+    // Store this UUID for this session
+    sessionStorage.setItem('uuid', uuid);
+
+    // Store the trial number as well:
+    sessionStorage.setItem('trialNumber', 1);
+
+    // Open the first page
+    window.open("1.html","_self");
+  }
+
  /*
   * This function will generate ten random numbers between
   * 1 and maxNumber. It returns them as an array. Numbers CAN be
@@ -66,7 +80,7 @@
   }
 
   // This function will continue the user to the next page
-  function continue(participantID, trialNumber, visualizationType){
+  function continue(visualizationType){
     // Looking at the user's answer:
     var firstNumberInRatio = document.getElementById("firstNumberInRatio");
     var secondNumberInRatio = document.getElementById("secondNumberInRatio");
@@ -80,9 +94,14 @@
     var logBase2Error = (log(abs(usersRatio - actualRatio)+(1/8)))/(log(2));
     return logBase2Error;
 
-    //Saving this information in a multidimensonal array:
-    var resultsArray = [participantID, trialNumber, visualizationType, actualRatio, usersRatio]
+    // Getting current trial number
+    trialNumber = sessionStorage.getItem('trialNumber');
     
+    //Saving this information in a multidimensonal array:
+    var resultsArray = [sessionStorage.getItem('uuid'), sessionStorage.getItem('trialNumber'), visualizationType, actualRatio, usersRatio]
+
+    // Increasing the trial number
+    sessionStorage.setItem('trialNumber', trialNumber + 1)
   }
 
   // This function will specifically build a bar chart visualization
