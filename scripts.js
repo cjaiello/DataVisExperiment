@@ -131,13 +131,11 @@
 
     // If we've done 60 trials, then we're done.
     // Open the final page:
-    if(trialNumber > 60){
+    if(trialNumber > 2){
       // Open the ending page:
       window.open("end.html","_self");
     } else {
-      setTimeout(function(){
         location.reload();
-      }, 20000);
     }
   }
 
@@ -149,16 +147,51 @@
       .substring(1);
   }
 
+  // This function will display the results of all of our trials:
+  // Reference: http://stackoverflow.com/questions/11958641/print-out-javascript-array-in-table
+  function displayResults(){
+
+    // Get all of the results
+    var arrayOfStringsOfData = combineAllResults();
+
+    var $table = $( "<table></table>" );
+
+    var $line = $( "<tr><td align=\"center\" colspan=\"6\">Here are your results!</td></tr><tr><td class='tableCell'>Participant's UUID</td><td class='tableCell'>Trial Number</td><td class='tableCell'>Type of Graph</td><td class='tableCell'>Actual Ratio</td><td class='tableCell'>User's Ratio</td><td class='tableCell'>Error</td></tr>" );
+    $table.append( $line );
+    
+    // Loop through the array of strings of data, split it at each comma,
+    // and put it into a table.
+    for (counter = 0; counter < arrayOfStringsOfData.length; counter++ ) {
+      var currentLine = arrayOfStringsOfData[counter];
+      var $line = $( "<tr></tr>" );
+      if(currentLine != null){
+        var arrayOfValues = currentLine.split(',');
+        if(arrayOfValues != null){
+          $line.append( $( "<td class='tableCell'></td>" ).html( arrayOfValues[0] ) );
+          $line.append( $( "<td class='tableCell'></td>" ).html( arrayOfValues[1] ) );
+          $line.append( $( "<td class='tableCell'></td>" ).html( arrayOfValues[2] ) );
+          $line.append( $( "<td class='tableCell'></td>" ).html( arrayOfValues[3] ) );
+          $line.append( $( "<td class='tableCell'></td>" ).html( arrayOfValues[4] ) );
+          $line.append( $( "<td class='tableCell'></td>" ).html( arrayOfValues[5] ) );
+        }
+      }
+      $table.append( $line );
+    }
+
+    // Append to the table on the screen
+    $table.appendTo($("#resultsDiv"));
+  }
+
   // This function will combine the results from all trials into one array
   function combineAllResults() {
-    var allDataArray = [];
+    var arrayOfStringsOfData = [];
     for(counter = 1; counter <= 60; counter++){
       var trialToGet = 'results-' + counter;
       var trialValues = sessionStorage.getItem(trialToGet);
       // Store these trial values in this final array:
-      allDataArray[counter-1] = trialValues;
+      arrayOfStringsOfData[counter-1] = trialValues;
     }
-    return allDataArray;
+    return arrayOfStringsOfData;
   }
 
   // Constructing GUID.

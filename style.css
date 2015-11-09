@@ -37,6 +37,11 @@ body {
   text-align: center;
 }
 
+.tableCell{
+  width: 150px;
+  padding: 20px;
+}
+
 #submit {
   background-color: #000033;
   color: #ffffff;

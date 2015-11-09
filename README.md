@@ -55,3 +55,6 @@ http://bost.ocks.org/mike/bar/
 
 3. Creating a GUID:
 http://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
+
+4. Displaying final results in a table: 
+http://stackoverflow.com/questions/11958641/print-out-javascript-array-in-table
