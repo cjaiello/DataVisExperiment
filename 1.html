@@ -1,0 +1,92 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+<script src="scripts.js" charset="utf-8"></script>
+
+<style>
+/* Title of Page */
+h1 {
+  font-size: 22px;
+  font-family: Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif;
+  text-align: left;
+  padding-left: 10px;
+  color: #7f7fc5;
+}
+h2 {
+  font-size: 18px;
+  font-family: Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif;
+  text-align: left;
+  padding-left: 10px;
+  color: #7f7fc5;
+}
+/* Body text on page */
+body {
+  font-size: 20px;
+  color: #000033;
+  font-family: Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif;
+}
+/* All labels on charts */
+.labels {
+  font-size: 12px;
+  font-weight: bold;
+  font-family: Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif;
+}
+
+.chart div {
+  font: 10px sans-serif;
+  background-color: white;
+  padding: 5px;
+  margin: 5px;
+  color: white;
+}
+
+.outerDiv {
+  padding-left: 50px;
+  padding-top: 25px;
+}
+
+.leftMargin {
+  margin-left: 20px;
+}
+
+.chartHolder {
+  background-color: #000033;
+  padding: 20px;
+  width: 600px;
+}
+
+</style>
+
+<body>
+  <h1>TITLE</h1>
+  <div class="outerDiv">
+    <div class="chartHolder">
+      <div class="chart"></div>
+    </div>
+    <div class="question">
+      <br>
+      <strong>Question:</strong>
+      What is the ratio of the first item marked with an asterisk (*) to the second item marked with an asterisk?
+      <br>
+      Ratios do not need to be simplified, so '2 to 5' is the same as '4 to 10' and '40 to 100'. Use whatever size numbers you are most comfortable with.
+      <br><br>
+      <strong>Directions:</strong>
+      Type the first number into the first box, and type the second number into the second box.
+      <br>
+      Once you are done, please click the submit button to move to the next graph.
+      <br>
+      <i>
+        Please write your ratio in the format 'NUMBER to NUMBER', for example: 3 to 5, 1 to 2, 16 to 55, etc.
+      </i>
+      <br><br>
+      <input type="text" id="firstNumberInRatio" size="1" maxlength="1"></input> to <input type="text" id="secondNumberInRatio" size="1" maxlength="1"></input><button onClick="calculateAnswer" class="leftMargin">Submit</button>
+    </div>
+  </div>
+
+  <div visibility="none" id="firstCorrectNumber"></div>
+  <div visibility="none" id="secondCorrectNumber"></div>
+
+<script>
+    // Build outer visualization
+    buildBarVis(generateAnyRandomNumbers(100, 10));
+    markTwoDataPoints();
+</script>
+</body>

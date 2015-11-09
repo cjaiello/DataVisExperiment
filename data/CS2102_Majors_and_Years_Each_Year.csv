@@ -1,0 +1,608 @@
+TermAndYearTaken,Year,Major
+B10,Frosh,Undeclared
+B10,Soph,Undeclared
+B12,Junior,Undeclared
+B10,Frosh,Undeclared
+B10,Frosh,Math/Actuarial
+B10,Frosh,Electrical/Comp Eng
+B10,Soph,Electrical/Comp Eng
+B10,Junior,Electrical/Comp Eng
+B10,Frosh,Robotics Eng
+B10,Soph,Electrical/Comp Eng
+B10,Soph,Robotics Eng
+B10,Junior,Robotics Eng
+B10,Soph,Electrical/Comp Eng
+B10,Soph,Electrical/Comp Eng
+B10,Frosh,Math/Actuarial
+B11,Frosh,Physics
+B11,Soph,Physics
+B11,Junior,Physics
+B12,Senior,Physics
+B10,Frosh,IMGD
+B10,Soph,IMGD
+B10,Junior,IMGD
+B10,Senior,IMGD
+B10,Junior,IMGD
+B10,Frosh,Electrical/Comp Eng
+B10,Frosh,Other Majors
+B11,Soph,Other Majors
+B10,Frosh,IMGD
+B10,Frosh,Mech Eng
+B10,Frosh,Robotics Eng
+B10,Soph,IMGD
+B10,Frosh,IMGD
+B10,Frosh,IMGD
+B10,Misc,Undeclared
+B10,Frosh,Robotics Eng
+B10,Junior,Electrical/Comp Eng
+B10,Frosh,Computer Science
+B10,Junior,Robotics Eng
+B10,Senior,IMGD
+B10,Misc,Undeclared
+B10,Junior,Robotics Eng
+B10,Junior,Robotics Eng
+B10,Junior,Robotics Eng
+B10,Misc,Undeclared
+B10,Junior,Electrical/Comp Eng
+B10,Junior,Robotics Eng
+B10,Frosh,Computer Science
+B10,Senior,IMGD
+B10,Frosh,Computer Science
+B10,Misc,Undeclared
+B10,Junior,Robotics Eng
+B10,Misc,Undeclared
+B10,Senior,Electrical/Comp Eng
+B10,Soph,Robotics Eng
+B10,Frosh,Computer Science
+B10,Soph,Computer Science
+B12,Junior,Computer Science
+B10,Junior,Electrical/Comp Eng
+B10,Frosh,Computer Science
+B10,Frosh,IMGD
+B10,Frosh,IMGD
+B10,Frosh,Computer Science
+B10,Junior,Robotics Eng
+B10,Soph,Math/Actuarial
+B10,Soph,Math/Actuarial
+B10,Frosh,Chemical Eng
+B10,Frosh,Computer Science
+B10,Soph,Robotics Eng
+B10,Junior,Robotics Eng
+B10,Frosh,IMGD
+B10,Junior,Robotics Eng
+B10,Frosh,Computer Science
+B10,Soph,Robotics Eng
+B10,Soph,Electrical/Comp Eng
+B10,Frosh,Computer Science
+B10,Frosh,Computer Science
+B10,Senior,Robotics Eng
+B10,Frosh,Math/Actuarial
+B10,Junior,Robotics Eng
+B10,Frosh,IMGD
+B10,Frosh,IMGD
+B10,Frosh,Other Majors
+B10,Misc,Robotics Eng
+B10,Soph,Robotics Eng
+B10,Frosh,Undeclared
+B10,Frosh,Mech Eng
+B10,Senior,Electrical/Comp Eng
+B10,Soph,Robotics Eng
+B10,Frosh,Math/Actuarial
+B10,Frosh,Other Majors
+B10,Frosh,Undeclared
+B10,Frosh,IMGD
+B10,Frosh,Computer Science
+B10,Frosh,Undeclared
+B10,Frosh,Undeclared
+B10,Misc,Undeclared
+B10,Frosh,Computer Science
+B10,Frosh,Computer Science
+B10,Frosh,IMGD
+B10,Frosh,Computer Science
+B10,Frosh,IMGD
+B10,Frosh,Bio/Biochem/BME
+B10,Frosh,Computer Science
+B10,Frosh,Computer Science
+B10,Frosh,Computer Science
+B10,Junior,Math/Actuarial
+B10,Senior,Computer Science
+B10,Frosh,IMGD
+B10,Frosh,IMGD
+B10,Soph,Mech Eng
+B10,Misc,Undeclared
+B10,Frosh,Math/Actuarial
+B10,Frosh,Undeclared
+B10,Frosh,Computer Science
+B10,Frosh,Computer Science
+B10,Junior,Math/Actuarial
+B10,Frosh,Electrical/Comp Eng
+B10,Misc,Undeclared
+B10,Misc,Computer Science
+B10,Frosh,IMGD
+B10,Frosh,IMGD
+B10,Frosh,Computer Science
+B10,Senior,Robotics Eng
+B10,Soph,Bio/Biochem/BME
+B10,Frosh,Robotics Eng
+B10,Frosh,Computer Science
+B10,Junior,Robotics Eng
+B10,Frosh,Math/Actuarial
+B10,Senior,Robotics Eng
+B10,Frosh,IMGD
+B10,Frosh,Undeclared
+B10,Junior,Math/Actuarial
+B10,Frosh,Math/Actuarial
+B10,Junior,Math/Actuarial
+B10,Misc,Computer Science
+B10,Frosh,Computer Science
+B10,Junior,Electrical/Comp Eng
+B10,Soph,Robotics Eng
+B10,Frosh,Computer Science
+B10,Frosh,Computer Science
+B10,Misc,Undeclared
+B10,Soph,Robotics Eng
+B10,Frosh,Undeclared
+B10,Frosh,IMGD
+B10,Frosh,Robotics Eng
+B10,Frosh,Computer Science
+B10,Frosh,Math/Actuarial
+B10,Frosh,Computer Science
+B10,Soph,Electrical/Comp Eng
+B10,Frosh,IMGD
+B10,Frosh,Computer Science
+B10,Frosh,IMGD
+B10,Junior,Electrical/Comp Eng
+B10,Frosh,Chemical Eng
+B10,Senior,Robotics Eng
+B10,Frosh,Computer Science
+B10,Frosh,Computer Science
+B10,Senior,IMGD
+B10,Senior,Electrical/Comp Eng
+B10,Soph,Computer Science
+B10,Soph,Robotics Eng
+B10,Junior,Robotics Eng
+B10,Soph,Mech Eng
+B10,Frosh,Math/Actuarial
+B10,Senior,Robotics Eng
+B10,Frosh,IMGD
+B10,Frosh,Computer Science
+B10,Frosh,Robotics Eng
+B10,Junior,Other Majors
+B10,Frosh,Computer Science
+B11,Frosh,Computer Science
+B11,Frosh,IMGD
+B11,Soph,Robotics Eng
+B11,Misc,Undeclared
+B11,Frosh,IMGD
+B11,Soph,Robotics Eng
+B11,Senior,Robotics Eng
+B11,Misc,Undeclared
+B11,Soph,Math/Actuarial
+B11,Misc,Undeclared
+B11,Frosh,Computer Science
+B11,Junior,Electrical/Comp Eng
+B11,Frosh,Electrical/Comp Eng
+B11,Frosh,Computer Science
+B11,Frosh,Computer Science
+B11,Soph,Robotics Eng
+B11,Frosh,Computer Science
+B11,Frosh,Computer Science
+B11,Frosh,Computer Science
+B11,Soph,Robotics Eng
+B11,Soph,Robotics Eng
+B11,Frosh,Math/Actuarial
+B11,Frosh,Electrical/Comp Eng
+B11,Frosh,IMGD
+B11,Soph,Robotics Eng
+B11,Senior,Other Majors
+B11,Soph,Undeclared
+B11,Junior,Robotics Eng
+B11,Soph,Robotics Eng
+B11,Frosh,Computer Science
+B11,Junior,Robotics Eng
+B11,Frosh,Computer Science
+B11,Misc,Undeclared
+B11,Frosh,Computer Science
+B11,Frosh,Computer Science
+B11,Junior,Electrical/Comp Eng
+B11,Frosh,Computer Science
+B11,Frosh,Other Majors
+B11,Misc,Undeclared
+B11,Misc,Undeclared
+B11,Frosh,Electrical/Comp Eng
+B11,Junior,Other Majors
+B11,Soph,Electrical/Comp Eng
+B11,Frosh,Computer Science
+B11,Junior,Robotics Eng
+B11,Frosh,Undeclared
+B11,Junior,Electrical/Comp Eng
+B11,Misc,Undeclared
+B11,Soph,Math/Actuarial
+B11,Frosh,IMGD
+B11,Soph,Robotics Eng
+B11,Soph,Math/Actuarial
+B11,Soph,Robotics Eng
+B11,Frosh,Computer Science
+B11,Frosh,Computer Science
+B11,Misc,Undeclared
+B11,Misc,Undeclared
+B11,Frosh,Undeclared
+B11,Senior,Chemical Eng
+B11,Frosh,Computer Science
+B11,Frosh,Math/Actuarial
+B11,Frosh,Computer Science
+B11,Frosh,Computer Science
+B11,Soph,Mech Eng
+B11,Frosh,IMGD
+B11,Frosh,Computer Science
+B11,Frosh,IMGD
+B11,Soph,IMGD
+B11,Frosh,IMGD
+B11,Senior,Electrical/Comp Eng
+B11,Soph,Computer Science
+B11,Frosh,Math/Actuarial
+B11,Frosh,Electrical/Comp Eng
+B11,Frosh,Bio/Biochem/BME
+B11,Frosh,Undeclared
+B11,Frosh,Undeclared
+B11,Frosh,Computer Science
+B11,Soph,Electrical/Comp Eng
+B11,Frosh,Computer Science
+B11,Soph,Robotics Eng
+B11,Misc,Computer Science
+B11,Frosh,Computer Science
+B11,Frosh,IMGD
+B11,Soph,Robotics Eng
+B11,Frosh,Computer Science
+B11,Frosh,Chemical Eng
+B11,Frosh,Electrical/Comp Eng
+B11,Junior,Electrical/Comp Eng
+B11,Soph,Robotics Eng
+B11,Frosh,Computer Science
+B11,Frosh,Computer Science
+B11,Frosh,Computer Science
+B11,Frosh,IMGD
+B11,Frosh,Computer Science
+B11,Soph,Robotics Eng
+B11,Frosh,Computer Science
+B11,Soph,Electrical/Comp Eng
+B11,Misc,Undeclared
+B11,Soph,Robotics Eng
+B11,Soph,Robotics Eng
+B11,Frosh,Undeclared
+B11,Frosh,IMGD
+B11,Frosh,Math/Actuarial
+B11,Frosh,Math/Actuarial
+B11,Soph,Robotics Eng
+B11,Soph,Computer Science
+B11,Soph,Electrical/Comp Eng
+B11,Frosh,Undeclared
+B11,Frosh,Computer Science
+B11,Junior,Mech Eng
+B11,Senior,IMGD
+B11,Frosh,Computer Science
+B11,Frosh,Computer Science
+B11,Soph,Electrical/Comp Eng
+B11,Frosh,Computer Science
+B11,Soph,Robotics Eng
+B11,Frosh,Undeclared
+B11,Frosh,Computer Science
+B11,Frosh,Computer Science
+B11,Frosh,Robotics Eng
+B11,Frosh,Computer Science
+B11,Frosh,IMGD
+B11,Frosh,Undeclared
+B11,Frosh,Computer Science
+B11,Junior,Math/Actuarial
+B11,Frosh,Computer Science
+B11,Soph,Mech Eng
+B11,Frosh,Electrical/Comp Eng
+B11,Frosh,Robotics Eng
+B11,Frosh,Chemical Eng
+B11,Frosh,Computer Science
+B11,Frosh,IMGD
+B11,Misc,Robotics Eng
+B11,Frosh,IMGD
+B11,Frosh,Computer Science
+B11,Frosh,Computer Science
+B11,Frosh,Computer Science
+B11,Misc,Computer Science
+B11,Soph,Electrical/Comp Eng
+B11,Frosh,Other Majors
+B11,Frosh,Computer Science
+B11,Frosh,Computer Science
+B11,Soph,Undeclared
+B11,Frosh,Math/Actuarial
+B11,Frosh,Computer Science
+B11,Misc,Undeclared
+B11,Soph,Robotics Eng
+B11,Frosh,Computer Science
+B11,Frosh,Undeclared
+B11,Frosh,Electrical/Comp Eng
+B11,Frosh,Computer Science
+B11,Soph,Mech Eng
+B11,Frosh,IMGD
+B11,Soph,Electrical/Comp Eng
+B11,Soph,Mech Eng
+B11,Frosh,Computer Science
+B11,Frosh,Computer Science
+B11,Soph,Robotics Eng
+B11,Soph,Undeclared
+B11,Frosh,Computer Science
+B11,Frosh,Computer Science
+B11,Junior,Robotics Eng
+B11,Frosh,Computer Science
+B11,Frosh,Math/Actuarial
+B11,Frosh,Math/Actuarial
+B11,Frosh,IMGD
+B11,Soph,Robotics Eng
+B11,Soph,Electrical/Comp Eng
+B11,Frosh,Computer Science
+B11,Frosh,IMGD
+B11,Frosh,Computer Science
+B11,Frosh,IMGD
+B11,Soph,Physics
+B11,Frosh,Computer Science
+B11,Soph,Robotics Eng
+B11,Frosh,Computer Science
+B11,Frosh,Undeclared
+B11,Frosh,Computer Science
+B11,Frosh,IMGD
+B11,Frosh,Robotics Eng
+B11,Soph,Robotics Eng
+B11,Frosh,IMGD
+B11,Soph,Robotics Eng
+B11,Frosh,Electrical/Comp Eng
+B11,Senior,Other Majors
+B11,Frosh,Computer Science
+B11,Frosh,Computer Science
+B11,Frosh,Other Majors
+B11,Frosh,IMGD
+B11,Frosh,Math/Actuarial
+B11,Frosh,Computer Science
+B11,Frosh,IMGD
+B11,Frosh,Undeclared
+B11,Frosh,IMGD
+B11,Misc,Robotics Eng
+B11,Frosh,Computer Science
+B11,Frosh,Bio/Biochem/BME
+B11,Frosh,IMGD
+B11,Soph,Computer Science
+B11,Frosh,Mech Eng
+B11,Frosh,Math/Actuarial
+B11,Frosh,Computer Science
+B11,Frosh,Computer Science
+B11,Frosh,IMGD
+B11,Frosh,Computer Science
+B11,Frosh,IMGD
+B11,Frosh,Math/Actuarial
+B11,Misc,Mech Eng
+B11,Frosh,Computer Science
+B12,Frosh,Undeclared
+B12,Frosh,Computer Science
+B12,Frosh,IMGD
+B12,Frosh,Computer Science
+B12,Frosh,Computer Science
+B12,Frosh,Electrical/Comp Eng
+B12,Misc,Undeclared
+B12,Misc,Undeclared
+B12,Frosh,Computer Science
+B12,Soph,Electrical/Comp Eng
+B12,Soph,Robotics Eng
+B12,Misc,Undeclared
+B12,Soph,Robotics Eng
+B12,Soph,Robotics Eng
+B12,Frosh,Chemical Eng
+B12,Frosh,IMGD
+B12,Misc,Undeclared
+B12,Soph,Robotics Eng
+B12,Junior,Electrical/Comp Eng
+B12,Frosh,Computer Science
+B12,Frosh,Computer Science
+B12,Frosh,Computer Science
+B12,Frosh,Computer Science
+B12,Misc,Undeclared
+B12,Frosh,Computer Science
+B12,Soph,Robotics Eng
+B12,Frosh,Computer Science
+B12,Frosh,Computer Science
+B12,Frosh,Computer Science
+B12,Frosh,Undeclared
+B12,Frosh,IMGD
+B12,Frosh,Computer Science
+B12,Soph,Robotics Eng
+B12,Frosh,Computer Science
+B12,Frosh,Computer Science
+B12,Frosh,IMGD
+B12,Frosh,IMGD
+B12,Frosh,Computer Science
+B12,Frosh,Computer Science
+B12,Junior,Math/Actuarial
+B12,Frosh,Undeclared
+B12,Frosh,IMGD
+B12,Misc,Undeclared
+B12,Frosh,Undeclared
+B12,Frosh,Undeclared
+B12,Misc,Undeclared
+B12,Misc,Electrical/Comp Eng
+B12,Misc,Undeclared
+B12,Senior,Other Majors
+B12,Frosh,Computer Science
+B12,Junior,Electrical/Comp Eng
+B12,Soph,Robotics Eng
+B12,Soph,Robotics Eng
+B12,Frosh,Math/Actuarial
+B12,Frosh,IMGD
+B12,Junior,Math/Actuarial
+B12,Frosh,Computer Science
+B12,Frosh,Undeclared
+B12,Frosh,Computer Science
+B12,Frosh,Electrical/Comp Eng
+B12,Frosh,IMGD
+B12,Frosh,Computer Science
+B12,Frosh,Computer Science
+B12,Soph,Computer Science
+B12,Frosh,Computer Science
+B12,Senior,Electrical/Comp Eng
+B12,Frosh,Undeclared
+B12,Frosh,IMGD
+B12,Soph,Undeclared
+B12,Frosh,Computer Science
+B12,Frosh,Undeclared
+B12,Frosh,Other Majors
+B12,Frosh,Bio/Biochem/BME
+B12,Soph,Undeclared
+B12,Frosh,Computer Science
+B12,Soph,Bio/Biochem/BME
+B12,Frosh,Computer Science
+B12,Misc,Undeclared
+B12,Soph,Robotics Eng
+B12,Soph,Electrical/Comp Eng
+B12,Frosh,Electrical/Comp Eng
+B12,Soph,Mech Eng
+B12,Soph,Math/Actuarial
+B12,Soph,Physics
+B12,Frosh,Math/Actuarial
+B12,Frosh,IMGD
+B12,Frosh,IMGD
+B12,Frosh,IMGD
+B12,Frosh,IMGD
+B12,Frosh,Electrical/Comp Eng
+B12,Frosh,IMGD
+B12,Frosh,Undeclared
+B12,Frosh,IMGD
+B12,Frosh,Computer Science
+B12,Senior,Electrical/Comp Eng
+B12,Frosh,Physics
+B12,Frosh,Computer Science
+B12,Soph,Mech Eng
+B12,Soph,Electrical/Comp Eng
+B12,Misc,Math/Actuarial
+B12,Frosh,Undeclared
+B12,Soph,Undeclared
+B12,Frosh,Computer Science
+B12,Frosh,Computer Science
+B12,Soph,Robotics Eng
+B12,Frosh,Computer Science
+B12,Frosh,Computer Science
+B12,Frosh,Math/Actuarial
+B12,Soph,IMGD
+B12,Frosh,Computer Science
+B12,Frosh,Computer Science
+B12,Misc,Undeclared
+B12,Frosh,Computer Science
+B12,Senior,Robotics Eng
+B12,Frosh,Computer Science
+B12,Frosh,Computer Science
+B12,Frosh,Robotics Eng
+B12,Frosh,Computer Science
+B12,Frosh,Computer Science
+B12,Frosh,Computer Science
+B12,Soph,Math/Actuarial
+B12,Frosh,IMGD
+B12,Frosh,Computer Science
+B12,Frosh,Math/Actuarial
+B12,Soph,Undeclared
+B12,Frosh,Chemical Eng
+B12,Frosh,Computer Science
+B12,Frosh,Computer Science
+B12,Soph,Electrical/Comp Eng
+B12,Frosh,Computer Science
+B12,Soph,IMGD
+B12,Frosh,Electrical/Comp Eng
+B12,Frosh,Undeclared
+B12,Frosh,Undeclared
+B12,Soph,Robotics Eng
+B12,Frosh,Computer Science
+B12,Frosh,IMGD
+B12,Senior,Electrical/Comp Eng
+B12,Junior,Other Majors
+B12,Soph,Robotics Eng
+B12,Misc,Computer Science
+B12,Frosh,Computer Science
+B12,Soph,Mech Eng
+B12,Frosh,Other Majors
+B12,Soph,Robotics Eng
+B12,Frosh,Undeclared
+B12,Soph,Robotics Eng
+B12,Frosh,Robotics Eng
+B12,Frosh,Computer Science
+B12,Frosh,Undeclared
+B12,Soph,Bio/Biochem/BME
+B12,Frosh,IMGD
+B12,Frosh,Chemical Eng
+B12,Misc,Robotics Eng
+B12,Senior,Electrical/Comp Eng
+B12,Frosh,Computer Science
+B12,Frosh,Computer Science
+B12,Frosh,Robotics Eng
+B12,Senior,IMGD
+B12,Soph,Electrical/Comp Eng
+B12,Misc,Computer Science
+B12,Frosh,Math/Actuarial
+B12,Soph,Electrical/Comp Eng
+B12,Junior,Electrical/Comp Eng
+B12,Soph,Electrical/Comp Eng
+B12,Junior,Electrical/Comp Eng
+B12,Frosh,IMGD
+B12,Frosh,Undeclared
+B12,Soph,Undeclared
+B12,Frosh,Computer Science
+B12,Frosh,Computer Science
+B12,Frosh,Other Majors
+B12,Frosh,IMGD
+B12,Frosh,Computer Science
+B12,Frosh,Computer Science
+B12,Junior,Mech Eng
+B12,Frosh,Robotics Eng
+B12,Soph,Robotics Eng
+B12,Soph,Robotics Eng
+B12,Senior,Mech Eng
+B12,Frosh,Computer Science
+B12,Soph,Undeclared
+B12,Frosh,Computer Science
+B12,Frosh,Undeclared
+B12,Soph,Electrical/Comp Eng
+B12,Soph,Robotics Eng
+B12,Soph,Robotics Eng
+B12,Soph,Computer Science
+B12,Frosh,Computer Science
+B12,Frosh,IMGD
+B12,Junior,Electrical/Comp Eng
+B12,Misc,Undeclared
+B12,Soph,Electrical/Comp Eng
+B12,Senior,Robotics Eng
+B12,Misc,Computer Science
+B12,Misc,Robotics Eng
+B12,Frosh,Computer Science
+B12,Soph,Electrical/Comp Eng
+B12,Soph,Robotics Eng
+B12,Frosh,Computer Science
+B12,Misc,Bio/Biochem/BME
+B12,Junior,IMGD
+B12,Junior,Mech Eng
+B12,Soph,Robotics Eng
+B12,Soph,Robotics Eng
+B12,Frosh,IMGD
+B12,Soph,Physics
+B12,Soph,Mech Eng
+B12,Soph,Robotics Eng
+B12,Frosh,IMGD
+B12,Frosh,Undeclared
+B12,Frosh,Computer Science
+B12,Soph,Robotics Eng
+B12,Frosh,Computer Science
+B12,Soph,Electrical/Comp Eng
+B12,Frosh,Undeclared
+B12,Soph,Robotics Eng
+B12,Soph,Math/Actuarial
+B12,Frosh,IMGD
+B12,Soph,Robotics Eng
+B12,Frosh,IMGD
+B12,Junior,Bio/Biochem/BME
+B12,Frosh,Computer Science
+B12,Frosh,Computer Science
+B12,Soph,Robotics Eng
+B12,Soph,Computer Science
+B12,Soph,Electrical/Comp Eng
+B12,Soph,Computer Science
