@@ -28,6 +28,25 @@ body {
   font-family: Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif;
 }
 
+#percentage {
+  background-color: #9999ff;
+  width: 60px;
+  height: 40px;
+  font-family: Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+
+#submit {
+  background-color: #000033;
+  color: #ffffff;
+  width: 100px;
+  height: 40px;
+  font-family: Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+
 .chart div {
   font: 10px sans-serif;
   background-color: white;
