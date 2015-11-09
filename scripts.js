@@ -65,8 +65,8 @@
     secondCorrectNumber.innerHTML = (secondMarkedNode.offsetWidth-10) / 5;
   }
 
-  // This will calculate the correct answer and judge the person's answer against the correct answer
-  function calculateAnswer(){
+  // This function will continue the user to the next page
+  function continue(participantID, trialNumber, visualizationType){
     // Looking at the user's answer:
     var firstNumberInRatio = document.getElementById("firstNumberInRatio");
     var secondNumberInRatio = document.getElementById("secondNumberInRatio");
@@ -76,8 +76,13 @@
     var secondCorrectNumber = document.getElementById("secondCorrectNumber").innerHTML;
     var actualRatio = firstCorrectNumber/secondCorrectNumber;
 
-    // Calculating percent error: (((user's answer - actual answer)/ actual answer) * 100)
-    var percentError = (((usersRatio - actualRatio)/actualRatio)*100)
+    // Calculating log base 2 error
+    var logBase2Error = (log(abs(usersRatio - actualRatio)+(1/8)))/(log(2));
+    return logBase2Error;
+
+    //Saving this information in a multidimensonal array:
+    var resultsArray = [participantID, trialNumber, visualizationType, actualRatio, usersRatio]
+    
   }
 
   // This function will specifically build a bar chart visualization
