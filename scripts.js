@@ -40,7 +40,6 @@
     while(counter < numberOfNumbersWanted){
       // Choose a random number:
       randomNumber =  Math.floor((Math.random() * maxNumber) + 1);
-      console.log("Random number chosen: " + randomNumber);
       // See if we've ever used this number before:
       var foundBoolean = false;
       for(innerCounter = 0; innerCounter < arrayOfNumbers.length; innerCounter++){
@@ -51,7 +50,6 @@
       }
       // If we haven't used this number before, we can use it now:
       if(!foundBoolean){
-        console.log("We can use this! Using: " + randomNumber);
         arrayOfNumbers[counter] = randomNumber;
         counter++;
       }
@@ -62,9 +60,7 @@
   // Short function to mark two data points in the set
   function markTwoDataPoints(){
     // First we need to randomly choose two data points to select:
-    console.log("Choosing random points to mark:");
     arrayOfChosenDataPoints = generateDifferentRandomNumbers(10, 2);
-    console.log("Chosen data points are: " + (arrayOfChosenDataPoints[0]-1) + " and " + (arrayOfChosenDataPoints[1]-1));
 
     // Then we need to select them and add marks to them:
     firstMarkedNode = d3.select(".chart")[0][0].children[(arrayOfChosenDataPoints[0]-1)];
