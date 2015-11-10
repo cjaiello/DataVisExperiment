@@ -11,6 +11,10 @@
     // Store the trial number as well:
     sessionStorage.setItem('trialNumber', 1);
 
+    // Create a randomly-chosen order of 60 graphs.
+    // There are 20 graphs of each type.
+    constructLatinSquareDesign();
+
     // Open the first page
     window.open("1.html","_self");
   }
@@ -73,7 +77,6 @@
 
   // Short function to mark two data points in the set
   function markTwoDataPoints(){
-
     var chartType = document.getElementById("chartType").innerHTML;
     console.log(chartType);
 
@@ -177,7 +180,7 @@
 
     // If we've done 60 trials, then we're done.
     // Open the final page:
-    if(trialNumber > 2){
+    if(trialNumber > 60){
       // Open the ending page:
       window.open("end.html","_self");
     } else {
@@ -311,7 +314,7 @@
 
 
 /// This function will build the dot visualization
-function buildDotVis(data){
+function buildCircleVis(data){
   // Now let's turn them into circles, because
   // for some reason Christina weirdly likes circles
   // although this will probably prove they're bad practice to use...
@@ -347,4 +350,56 @@ function buildDotVis(data){
 
     console.log("Done");
 
+  }
+
+
+
+
+  // Making sure that we have 20 of each chart
+  // type, and that each is chosen at random.
+  function constructLatinSquareDesign(){
+    // This will hold the numbers 1-60, chosen at random:
+    var randomNumbers = generateDifferentRandomNumbers(60, 60);
+
+    // Store these numbers in the session storage:
+    sessionStorage.setItem("numbers", JSON.stringify(randomNumbers));
+  }
+
+
+
+
+
+  // This will get the current viz type and pass it into
+  // a function that will load our next visualization:
+  function loadNextVis(){
+    var previousChartType = document.getElementById("chartType").innerHTML;
+    continueToNextVisualization(previousChartType);
+  }
+
+
+
+  // This function chooses what our next viz to build is:
+  function pickVizToBuild(trialNumber){
+    // Trial numbers are 1-60, but the array is
+    // zero-indexed, so we need to subtract one.
+    trialNumber = trialNumber - 1;
+
+    // Get our list of random numbers:
+    var stringOfNumbers = sessionStorage.getItem("numbers");
+    console.log(stringOfNumbers);
+    var storedNumbers = JSON.parse(stringOfNumbers);
+    console.log(storedNumbers);
+
+    // Based on the random number, pick a chart type:
+    if(storedNumbers[trialNumber] < 20){
+      console.log("We are building a bar chart!");
+      buildBarVis(generateAnyRandomNumbers(100, 10));
+    } else if (storedNumbers[trialNumber] < 40){
+      console.log("We are building a circle chart!");
+      buildCircleVis(generateAnyRandomNumbers(100, 10));
+    } else {
+      console.log("We are building the third visualization type!");
+      buildBarVis(generateAnyRandomNumbers(100, 10));
+    }
+    markTwoDataPoints();
   }

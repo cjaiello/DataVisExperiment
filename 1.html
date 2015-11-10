@@ -23,7 +23,7 @@
       <br>
       Once you are done, please click the dark blue "Submit" button (or hit the 'Enter' key on your keyboard) to move to the next graph.
       <br><br>
-      <input type="text" id="percentage" size="1" maxlength="2"></input><button id="submit" onClick="continueToNextVisualization('bar')" class="leftMargin">Submit</button>
+      <input type="text" id="percentage" size="1" maxlength="2"></input><button id="submit" onClick="loadNextVis()" class="leftMargin">Submit</button>
     </div>
   </div>
 
@@ -31,13 +31,13 @@
   <div id="secondCorrectNumber"></div>
 
 <script>
-    // Build outer visualization
-    buildDotVis(generateAnyRandomNumbers(100, 10));
-    markTwoDataPoints();
-
     // Setting h1 to have the trial number in it:
     trialNumber = sessionStorage.getItem('trialNumber');
     document.getElementById("trialNumberLabel").innerHTML = "Trial Number " + trialNumber;
+
+    // This will pick which visualization to build right now, based
+    // on the trial number:
+    pickVizToBuild(trialNumber);
 
     // When people hit enter, have that also submit the answer
     $("#percentage").keypress(function(e) {
