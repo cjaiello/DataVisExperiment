@@ -391,15 +391,102 @@ function buildCircleVis(data){
     console.log(storedNumbers);
 
     // Based on the random number, pick a chart type:
-    if(storedNumbers[trialNumber] < 20){
+    if(storedNumbers[trialNumber] < 0){
       console.log("We are building a bar chart!");
       buildBarVis(generateAnyRandomNumbers(100, 10));
-    } else if (storedNumbers[trialNumber] < 40){
+    } else if (storedNumbers[trialNumber] < 0){
       console.log("We are building a circle chart!");
       buildCircleVis(generateAnyRandomNumbers(100, 10));
     } else {
       console.log("We are building the third visualization type!");
-      buildBarVis(generateAnyRandomNumbers(100, 10));
+      buildPieVis(generateAnyRandomNumbers(100, 10));
     }
     markTwoDataPoints();
   }
+
+
+
+
+
+  // Builds pie chart visualization
+  function buildPieVis(data) {
+    var chartType = document.getElementById("chartType");
+    chartType.innerHTML = "Pie Chart";
+
+    // Changing the text of the directions based on the visualization
+    var questionText = document.getElementById("question");
+    questionText.innerHTML = "Make note of the two data points that are marked with an asterisk (*). What percentage is the smaller data point of the larger data point?";
+
+    console.log(data);
+
+
+    // Width, height, and radius for pie chart
+    var width = 400,
+    height = 300,
+    radius = Math.min(width, height) / 2;
+
+    var centerPlacement = width / 2;
+
+    // Outer and inner radii
+    var outerRadius = 0;
+    var innerRadius = 0;    
+
+    console.log("Data is:");
+    console.log(data);
+    console.log("d3.select(.chart) is:");
+    console.log(d3.select(".chart"));
+
+    // Adding svg element to body, setting its width and height,
+    // and moving it to a certain location on the screen
+    var vis = d3.select(".chart")
+    .data(data)
+    .append("svg:svg") 
+    .attr("class", "pieChart")
+    .attr("width", width)
+    .attr("height", height)
+    .append("svg:g") 
+    .attr("transform", "translate(" + centerPlacement + "," + centerPlacement + ")");
+
+    console.log("Vis");
+    console.log(vis);
+
+    // Setting inner and outer radii for each arc piece
+    var arc = d3.svg.arc()
+    .innerRadius(innerRadius)
+    .outerRadius(outerRadius);
+
+    console.log(arc);
+
+    // Selecting a pie chart
+    var pie = d3.layout.pie()
+          .value(function(d) { 
+            console.log("D is: " + d);
+            return d; 
+          });
+
+    console.log("Pie:");
+    console.log(pie);
+
+    /* Selects all slices in g, associates pie data, 
+     * makes g elements for each item in the array,
+     * creates groups to hold each slice,
+     * and adds the class "slice" to each slice 
+     * for styling purposes
+     */
+    var arcs = vis.selectAll(".arc") 
+    .data(pie(data))
+    .enter().append("g")
+    .attr("class", "arc");
+
+    console.log("Arcs:");
+    console.log(arcs);
+
+    // Setting slice colors and creating SVG path
+    arcs.append("path")
+    .attr("d", arc)
+    .attr("fill", "red" );
+
+    console.log("Arcs:");
+    console.log(arcs);
+
+    }

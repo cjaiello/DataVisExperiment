@@ -58,3 +58,6 @@ http://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
 
 4. Displaying final results in a table: 
 http://stackoverflow.com/questions/11958641/print-out-javascript-array-in-table
+
+5. Pie Chart Reference:
+http://bl.ocks.org/mbostock/3887235
