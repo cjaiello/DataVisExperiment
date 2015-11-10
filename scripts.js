@@ -330,7 +330,7 @@ function buildDotVis(data){
             .append("svg")
             .attr("class", "circleChart")
             .attr("width",  600)
-            .attr("height", 200);
+            .attr("height", 350);
 
   // generate circles 
   svg.selectAll("circle")
@@ -340,7 +340,7 @@ function buildDotVis(data){
      .attr("cx", function(d, i) {
             console.log(i);
             return (((i+1) * 50)); })
-     .attr("cy", 100)
+     .attr("cy", 175)
      .attr("r", function(d) {
             return Math.ceil(d / 4); })
      .attr("fill", "white");
