@@ -23,7 +23,7 @@ Christina Aiello, cjaiello
 
 ------------------------------ Technical Achievements ------------------------------
 
-1. I used a combination of HTML, CSS, Javascript, and jQuery for this project.
+1. My constructLatinSquareDesign() method randomly arranges the numbers 1-60 in an array. I then created a function that chooses a visualization type based on the number provided. If the number is between 0 and 19, I make a bar chart. If the number is between 20 and 39, I make the circles chart. If the number is between 40 and 59, I made the third visualization type. Finally, I iterate through this array of unique random numbers that range from 1 to 60 (For example: [12, 40, 52, 57, 25, 43, 9, 4, 56, 2, 16, 49, 50, 17, 44, 46, 31, 35, 51, 5, 1, 10, 37, 36, 60, 34, 19, 30, 33, 20, 24, 22, 11, 41, 55, 3, 54, 14, 7, 45, 21, 47, 28, 58, 32, 26, 48, 13, 18, 27, 38, 42, 59, 8, 6, 15, 53, 23, 29, 39]), and I choose the visualization type based on the randomly-chosen unique number in that place. See my constructLatinSquareDesign() function and my pickVizToBuild() function in scripts.js for more information. :) This guarantees that the user sees 20 of each visualization type, and it shows these visualizations in a random order.
 
 2. To move trial information (the user's values, the error value, the trial number, etc) from one page to another, I have chosen to store it in the session info (using sessionStorage.setItem() and sessionStorage.getItem()).
 
