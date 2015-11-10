@@ -156,7 +156,7 @@
 
     var $table = $( "<table></table>" );
 
-    var $line = $( "<tr><td align=\"center\" colspan=\"6\">Here are your results!</td></tr><tr><td class='tableCell'>Participant's UUID</td><td class='tableCell'>Trial Number</td><td class='tableCell'>Type of Graph</td><td class='tableCell'>Actual Ratio</td><td class='tableCell'>User's Ratio</td><td class='tableCell'>Error</td></tr>" );
+    var $line = $( "<tr><td align=\"center\" colspan=\"6\" class='tableCellLabel'>Here are your results!</td></tr><tr><td class='tableCellLabel'>Participant's UUID</td><td class='tableCellLabel'>Trial Number</td><td class='tableCellLabel'>Type of Graph</td><td class='tableCellLabel'>Actual Ratio</td><td class='tableCellLabel'>User's Ratio</td><td class='tableCellLabel'>Error</td></tr>" );
     $table.append( $line );
     
     // Loop through the array of strings of data, split it at each comma,

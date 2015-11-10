@@ -28,6 +28,16 @@ body {
   font-family: Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif;
 }
 
+#resultsDiv{
+  background-color: #e6e6ff;
+}
+
+.tableCellLabel{
+  font-weight: bold;
+  width: 150px;
+  padding: 20px;
+}
+
 #percentage {
   background-color: #9999ff;
   width: 60px;
