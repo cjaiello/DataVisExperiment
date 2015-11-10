@@ -16,7 +16,7 @@
     constructLatinSquareDesign();
 
     // Open the first page
-    window.open("1.html","_self");
+    window.open("visualization.html","_self");
   }
 
 
