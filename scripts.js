@@ -156,7 +156,7 @@
 
     var $table = $( "<table></table>" );
 
-    var $line = $( "<tr><td align=\"center\" colspan=\"6\" class='tableCellLabel'>Here are your results!</td></tr><tr><td class='tableCellLabel'>Participant's UUID</td><td class='tableCellLabel'>Trial Number</td><td class='tableCellLabel'>Type of Graph</td><td class='tableCellLabel'>Actual Ratio</td><td class='tableCellLabel'>User's Ratio</td><td class='tableCellLabel'>Error</td></tr>" );
+    var $line = $( "<tr><td align=\"center\" colspan=\"6\" class='tableCellLabel'>Here are your results! <br>To read more about how the error was calculated, see page 13 of the PDF (page 542 is written on the page, but it's page 13 in the PDF) of <strong><a href='http://www.cs.ubc.ca/~tmm/courses/cpsc533c-04-spr/readings/cleveland.pdf' target='_none'>this paper</a></strong>.</td></tr><tr><td class='tableCellLabel'>Participant's UUID</td><td class='tableCellLabel'>Trial Number</td><td class='tableCellLabel'>Type of Graph</td><td class='tableCellLabel'>Actual Percent</td><td class='tableCellLabel'>Reported Percent</td><td class='tableCellLabel'>Log-base-2 Error, a.k.a 'cm-error'</td></tr>" );
     $table.append( $line );
     
     // Loop through the array of strings of data, split it at each comma,
