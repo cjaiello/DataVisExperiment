@@ -61,35 +61,49 @@
 
   // Short function to mark two data points in the set
   function markTwoDataPoints(){
+
+    var chartType = document.getElementById("chartType").innerHTML;
+    console.log(chartType);
+
     // First we need to randomly choose two data points to select:
     arrayOfChosenDataPoints = generateDifferentRandomNumbers(10, 2);
 
     // Marking the bar chart visualizations:
-    /*firstMarkedNode = d3.select(".chart")[0][0].children[(arrayOfChosenDataPoints[0]-1)];
-    firstMarkedNode.innerHTML = "<font style=\"color: black; font-size: 20px;\"><strong>*</strong></font>";
-    secondMarkedNode = d3.select(".chart")[0][0].children[(arrayOfChosenDataPoints[1]-1)];
-    secondMarkedNode.innerHTML = "<font style=\"color: black; font-size: 20px;\"><strong>*</strong></font>";*/
+    if(chartType == "Bar Chart"){
+      firstMarkedNode = d3.select(".chart")[0][0].children[(arrayOfChosenDataPoints[0]-1)];
+      firstMarkedNode.innerHTML = "<font style=\"color: black; font-size: 20px;\"><strong>*</strong></font>";
+      secondMarkedNode = d3.select(".chart")[0][0].children[(arrayOfChosenDataPoints[1]-1)];
+      secondMarkedNode.innerHTML = "<font style=\"color: black; font-size: 20px;\"><strong>*</strong></font>";
+      // Keeping track of the correct answers:
+      var firstCorrectNumber = document.getElementById("firstCorrectNumber");
+      firstCorrectNumber.innerHTML = (firstMarkedNode.offsetWidth-10) / 5;
+      var secondCorrectNumber = document.getElementById("secondCorrectNumber");
+      secondCorrectNumber.innerHTML = (secondMarkedNode.offsetWidth-10) / 5;
 
-    // Marking the dot visualizations:
-    firstMarkedNode = d3.select(".circleChart")[0][0].children[(arrayOfChosenDataPoints[0]-1)];
-    firstMarkedNode.innerHTML = "<font style=\"color: black; font-size: 20px;\"><strong>*</strong></font>";
-    secondMarkedNode = d3.select(".circleChart")[0][0].children[(arrayOfChosenDataPoints[1]-1)];
-    secondMarkedNode.innerHTML = "<font style=\"color: black; font-size: 20px;\"><strong>*</strong></font>";
+    } else if (chartType == "Circle Chart"){
+      var firstMarkedNode;
+      var secondMarkedNode;
+      // Marking the dot visualizations:
+      d3.selectAll("circle")
+       .attr("fill", function(d, i){
+        if(i == (arrayOfChosenDataPoints[0]-1)){
+          firstMarkedNode = d; // Grab the value
+          return "gray";
+        } else if (i == (arrayOfChosenDataPoints[1]-1)){
+          secondMarkedNode = d; // Grab the value
+          return "gray";
+        } else { 
+          return "white"
+        }});
+       
+        // Keeping track of the correct answers:
+        var firstCorrectNumber = document.getElementById("firstCorrectNumber");
+        firstCorrectNumber.innerHTML = firstMarkedNode;
+        var secondCorrectNumber = document.getElementById("secondCorrectNumber");
+        secondCorrectNumber.innerHTML = secondMarkedNode;
 
-    d3.selectAll("circle")
-     .attr("fill", function(d, i){
-      if((i == (arrayOfChosenDataPoints[0]-1)) || (i == (arrayOfChosenDataPoints[1]-1))){
-      return "gray";
-    } else { 
-      return "white"}
-    });
-
-    // Keeping track of the correct answers:
-    var firstCorrectNumber = document.getElementById("firstCorrectNumber");
-    firstCorrectNumber.innerHTML = (firstMarkedNode.offsetWidth-10) / 5;
-    var secondCorrectNumber = document.getElementById("secondCorrectNumber");
-    secondCorrectNumber.innerHTML = (secondMarkedNode.offsetWidth-10) / 5;
-  }
+      }
+    }
 
   // This function will continue the user to the next page
   function continueToNextVisualization(visualizationType){
@@ -219,6 +233,9 @@
   // This function will specifically build a bar chart visualization
   function buildBarVis(data) {
 
+  var chartType = document.getElementById("chartType");
+  chartType.innerHTML = "Bar Chart";
+
   // Changing the text of the directions based on the visualization
   var questionText = document.getElementById("question");
   questionText.innerHTML = "Make note of the two data points marked with asterisks (*). What percentage is the smaller data point of the larger data point?";
@@ -255,6 +272,9 @@ function buildDotVis(data){
   // for some reason Christina weirdly likes circles
   // although this will probably prove they're bad practice to use...
   // Aww.
+
+  var chartType = document.getElementById("chartType");
+  chartType.innerHTML = "Circle Chart";
 
   // Changing the text of the directions based on the visualization
   var questionText = document.getElementById("question");
