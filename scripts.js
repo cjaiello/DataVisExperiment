@@ -74,8 +74,15 @@
     firstMarkedNode = d3.select(".circleChart")[0][0].children[(arrayOfChosenDataPoints[0]-1)];
     firstMarkedNode.innerHTML = "<font style=\"color: black; font-size: 20px;\"><strong>*</strong></font>";
     secondMarkedNode = d3.select(".circleChart")[0][0].children[(arrayOfChosenDataPoints[1]-1)];
-    console.log(secondMarkedNode);
     secondMarkedNode.innerHTML = "<font style=\"color: black; font-size: 20px;\"><strong>*</strong></font>";
+
+    d3.selectAll("circle")
+     .attr("fill", function(d, i){
+      if((i == (arrayOfChosenDataPoints[0]-1)) || (i == (arrayOfChosenDataPoints[1]-1))){
+      return "gray";
+    } else { 
+      return "white"}
+    });
 
     // Keeping track of the correct answers:
     var firstCorrectNumber = document.getElementById("firstCorrectNumber");
@@ -212,6 +219,10 @@
   // This function will specifically build a bar chart visualization
   function buildBarVis(data) {
 
+  // Changing the text of the directions based on the visualization
+  var questionText = document.getElementById("question");
+  questionText.innerHTML = "Make note of the two data points marked with asterisks (*). What percentage is the smaller data point of the larger data point?";
+
     var w = 400;
     var h = 500;
 
@@ -245,13 +256,17 @@ function buildDotVis(data){
   // although this will probably prove they're bad practice to use...
   // Aww.
 
+  // Changing the text of the directions based on the visualization
+  var questionText = document.getElementById("question");
+  questionText.innerHTML = "Make note of the two data points that are gray. What percentage is the smaller data point of the larger data point?";
+
   console.log(data);
 
   var svg = d3.select(".chart")
             .append("svg")
             .attr("class", "circleChart")
             .attr("width",  600)
-            .attr("height", 500);
+            .attr("height", 200);
 
   // generate circles 
   svg.selectAll("circle")
@@ -263,7 +278,7 @@ function buildDotVis(data){
             return (((i+1) * 50)); })
      .attr("cy", 100)
      .attr("r", function(d) {
-            return Math.ceil(d / 5); })
+            return Math.ceil(d / 4); })
      .attr("fill", "white");
 
     console.log("Done");
