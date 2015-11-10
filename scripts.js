@@ -64,11 +64,19 @@
     // First we need to randomly choose two data points to select:
     arrayOfChosenDataPoints = generateDifferentRandomNumbers(10, 2);
 
-    // Then we need to select them and add marks to them:
-    firstMarkedNode = d3.select(".chart")[0][0].children[(arrayOfChosenDataPoints[0]-1)];
+    // Marking the bar chart visualizations:
+    /*firstMarkedNode = d3.select(".chart")[0][0].children[(arrayOfChosenDataPoints[0]-1)];
     firstMarkedNode.innerHTML = "<font style=\"color: black; font-size: 20px;\"><strong>*</strong></font>";
     secondMarkedNode = d3.select(".chart")[0][0].children[(arrayOfChosenDataPoints[1]-1)];
+    secondMarkedNode.innerHTML = "<font style=\"color: black; font-size: 20px;\"><strong>*</strong></font>";*/
+
+    // Marking the dot visualizations:
+    firstMarkedNode = d3.select(".circleChart")[0][0].children[(arrayOfChosenDataPoints[0]-1)];
+    firstMarkedNode.innerHTML = "<font style=\"color: black; font-size: 20px;\"><strong>*</strong></font>";
+    secondMarkedNode = d3.select(".circleChart")[0][0].children[(arrayOfChosenDataPoints[1]-1)];
+    console.log(secondMarkedNode);
     secondMarkedNode.innerHTML = "<font style=\"color: black; font-size: 20px;\"><strong>*</strong></font>";
+
     // Keeping track of the correct answers:
     var firstCorrectNumber = document.getElementById("firstCorrectNumber");
     firstCorrectNumber.innerHTML = (firstMarkedNode.offsetWidth-10) / 5;
@@ -207,8 +215,6 @@
     var w = 400;
     var h = 500;
 
-    var format = d3.format(",.0f");
-
     var x = d3.scale.linear().range([0, w-50]),
         y = d3.scale.ordinal().rangeRoundBands([0, h-50], .1);
 
@@ -228,4 +234,38 @@
       .enter().append("div")
       .style("width", function(d) { return d * 5 + "px"; })
       .style("height", "20px");
+  }
+
+
+
+/// This function will build the dot visualization
+function buildDotVis(data){
+  // Now let's turn them into circles, because
+  // for some reason Christina weirdly likes circles
+  // although this will probably prove they're bad practice to use...
+  // Aww.
+
+  console.log(data);
+
+  var svg = d3.select(".chart")
+            .append("svg")
+            .attr("class", "circleChart")
+            .attr("width",  600)
+            .attr("height", 500);
+
+  // generate circles 
+  svg.selectAll("circle")
+     .data(data)
+     .enter()
+     .append("circle")
+     .attr("cx", function(d, i) {
+            console.log(i);
+            return (((i+1) * 50)); })
+     .attr("cy", 100)
+     .attr("r", function(d) {
+            return Math.ceil(d / 5); })
+     .attr("fill", "white");
+
+    console.log("Done");
+
   }
