@@ -15,6 +15,10 @@
     window.open("1.html","_self");
   }
 
+
+
+
+
  /*
   * This function will generate ten random numbers between
   * 1 and maxNumber. It returns them as an array. Numbers CAN be
@@ -29,6 +33,10 @@
     }
     return arrayOfNumbers;
   }
+
+
+
+
 
   /*
   * This function will generate ten random numbers between
@@ -58,6 +66,10 @@
     }
     return arrayOfNumbers;
   }
+
+
+
+
 
   // Short function to mark two data points in the set
   function markTwoDataPoints(){
@@ -95,15 +107,20 @@
         } else { 
           return "white"
         }});
-       
-        // Keeping track of the correct answers:
-        var firstCorrectNumber = document.getElementById("firstCorrectNumber");
-        firstCorrectNumber.innerHTML = firstMarkedNode;
-        var secondCorrectNumber = document.getElementById("secondCorrectNumber");
-        secondCorrectNumber.innerHTML = secondMarkedNode;
+     
+      // Keeping track of the correct answers:
+      var firstCorrectNumber = document.getElementById("firstCorrectNumber");
+      firstCorrectNumber.innerHTML = firstMarkedNode;
+      var secondCorrectNumber = document.getElementById("secondCorrectNumber");
+      secondCorrectNumber.innerHTML = secondMarkedNode;
 
-      }
     }
+  } 
+
+
+
+
+
 
   // This function will continue the user to the next page
   function continueToNextVisualization(visualizationType){
@@ -168,6 +185,11 @@
     }
   }
 
+
+
+
+
+
   // Generating four values for GUID.
   // Reference: http://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
   function generateGuidValues() {
@@ -175,6 +197,10 @@
       .toString(16)
       .substring(1);
   }
+
+
+
+
 
   // This function will display the results of all of our trials:
   // Reference: http://stackoverflow.com/questions/11958641/print-out-javascript-array-in-table
@@ -211,6 +237,11 @@
     $table.appendTo($("#resultsDiv"));
   }
 
+
+
+
+
+
   // This function will combine the results from all trials into one array
   function combineAllResults() {
     var arrayOfStringsOfData = [];
@@ -223,12 +254,22 @@
     return arrayOfStringsOfData;
   }
 
+
+
+
+
+
   // Constructing GUID.
   // Reference: http://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
   function guid() {
     return generateGuidValues() + generateGuidValues() + '-' + generateGuidValues() + '-' + generateGuidValues() + '-' +
       generateGuidValues() + '-' + generateGuidValues() + generateGuidValues() + generateGuidValues();
   }
+
+
+
+
+
 
   // This function will specifically build a bar chart visualization
   function buildBarVis(data) {
@@ -262,7 +303,10 @@
       .enter().append("div")
       .style("width", function(d) { return d * 5 + "px"; })
       .style("height", "20px");
-  }
+}
+
+
+
 
 
 
