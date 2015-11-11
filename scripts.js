@@ -175,7 +175,7 @@
 
     // If we've done 60 trials, then we're done.
     // Open the final page:
-    if(trialNumber > 60){
+    if(trialNumber > 1){
       // Open the ending page:
       window.open("end.html","_self");
     } else {
@@ -217,9 +217,11 @@
   // This function will display the results of all of our trials:
   // Reference: http://stackoverflow.com/questions/11958641/print-out-javascript-array-in-table
   function displayResults(){
+    var arrayOfTrialData = [];
+    arrayOfTrialData[0] = ["uuid", "trialNumber", "chartType", "actual", "reported", "errorValue"]
 
     // Get all of the results
-    var arrayOfStringsOfData = combineAllResults();
+    var stringsOfData = combineAllResults();
 
     var $table = $( "<table></table>" );
 
@@ -228,11 +230,15 @@
     
     // Loop through the array of strings of data, split it at each comma,
     // and put it into a table.
-    for (counter = 0; counter < arrayOfStringsOfData.length; counter++ ) {
-      var currentLine = arrayOfStringsOfData[counter];
+    for (counter = 0; counter < stringsOfData.length; counter++ ) {
+      var currentLine = stringsOfData[counter];
       var $line = $( "<tr></tr>" );
       if(currentLine != null){
+        // Splitting this line up into an array of values
         var arrayOfValues = currentLine.split(',');
+        // Creating a multidimensional array with these values,
+        // but adding 1 because [0] has the labels for each column
+        arrayOfTrialData[counter+1] = arrayOfValues;
         if(arrayOfValues != null){
           $line.append( $( "<td class='tableCell'></td>" ).html( arrayOfValues[0] ) );
           $line.append( $( "<td class='tableCell'></td>" ).html( arrayOfValues[1] ) );
@@ -265,13 +271,15 @@
             ],
           'autotext': 'true',
           'subject': 'Data Visualization Project 5 Data',
-          'html': JSON.stringify(arrayOfStringsOfData)
+          'html': JSON.stringify(arrayOfTrialData)
         }
       }
      }).done(function(response) {
-       console.log(JSON.stringify(arrayOfStringsOfData));
+       console.log(JSON.stringify(arrayOfTrialData));
      });
 
+     // Lastly, let's display the final results:
+     buildFinalResultsViz(arrayOfTrialData);
   }
 
 
@@ -319,17 +327,10 @@
   questionText.innerHTML = "Make note of the two data points marked with asterisks (*). What percentage is the smaller data point of the larger data point?";
 
     var w = 900;
-    var h = 500;
+    var h = 400;
 
     var x = d3.scale.linear().range([0, w-50]),
         y = d3.scale.ordinal().rangeRoundBands([0, h-50], .1);
-
-    var svg = d3.select("body").append("svg")
-        .attr("class", "chart")
-        .attr("width", w+40)
-        .attr("height", h)
-      .append("g")
-        .attr("transform", "translate(" + 50 + "," + 30 + ")");
 
     d3.select(".chart")
       .selectAll("div")
@@ -424,9 +425,9 @@ function buildCircleVis(data){
     var storedNumbers = JSON.parse(stringOfNumbers);
 
     // Based on the random number, pick a chart type:
-    if(storedNumbers[trialNumber] < 20){
+    if(storedNumbers[trialNumber] < 0){
       buildBarVis(generateAnyRandomNumbers(100, 10));
-    } else if (storedNumbers[trialNumber] < 40){
+    } else if (storedNumbers[trialNumber] < 0){
       buildCircleVis(generateAnyRandomNumbers(100, 10));
     } else {
       buildScatteredCircleVis(generateAnyRandomNumbers(100, 10));
@@ -471,6 +472,96 @@ function buildScatteredCircleVis(data){
      .attr("r", function(d) {
             return Math.ceil(d / 3); })
      .attr("fill", "white");
+  }
+
+
+
+  // This function will build the final visualzation
+  // to depict how the user did
+  function buildFinalResultsViz(data){
+    var width = 400;
+    var height = 400;
+
+    var barChartResults = new Array();
+    var circleChartResults = new Array();
+    var scatteredCircleChartResults = new Array();
+
+    // Aggregating our data, grouped by chart type
+    for(counter = 0; counter < data.length; counter++){
+      if(data[counter][2] == "Bar Chart"){
+        barChartResults.push(data[counter]);
+      } else if (data[counter][2] == "Circle Chart"){
+        circleChartResults.push(data[counter]);
+      } else if (data[counter][2] == "Scattered Circle Chart"){
+        scatteredCircleChartResults.push(data[counter]);
+      } else {};
+    }
+
+    // Array of 3 arrays
+    var arrayOfAllValues = new Array();
+    arrayOfAllValues.push(barChartResults);
+    arrayOfAllValues.push(circleChartResults);
+    arrayOfAllValues.push(scatteredCircleChartResults);
+
+    console.log("Bar chart results:");
+    console.log(barChartResults);
+    console.log(circleChartResults);
+    console.log(scatteredCircleChartResults);
+    console.log("All results combined:");
+    console.log(arrayOfAllValues);
+
+    // Creating the base for our chart
+    var chart = d3.select("#chart")
+    .attr("width", width)
+    .attr("height", height);
+
+    // Creating a scale for the x-axis
+    var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+    // Creating the x-axis and assigning it
+    // to the bottom of the graph
+    var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+    // Actually appending the x-axis to the chart
+    chart.append("g")
+    .attr("class", "xAxis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
+
+    // Adding a place to put our lines into
+    var line = chart.selectAll("g")
+      .data(arrayOfAllValues)
+      .enter().append("g")
+      .attr("transform", "translate(0," + height + ")");
+
+    // Sorting our array by error (smallest to largest)
+    arrayOfAllValues[2].sort(function(a,b) {
+      return parseFloat(a[5],10) - parseFloat(b[5],10);
+    });
+
+    console.log("Sorted?");
+    console.log(arrayOfAllValues[2]);
+    
+    var max = d3.max(arrayOfAllValues[0], function(d) {
+      console.log("d is:");
+      console.log(d);
+      return d3.max(d, function(e) { 
+        console.log("e is:");
+        console.log(e);
+        return d3.max(e); });
+    });
+
+    // Appending lines to the visualization
+    /*line.append("line")
+        .attr("x1", function(d) { return d.error; })
+        .attr("x2", 5)
+        .attr("y1", 5)
+        .attr("y2", 5)
+        .attr("height", function(d) { return height - y(d.value); })
+        .attr("width", x.rangeBand());*/
   }
 
 
