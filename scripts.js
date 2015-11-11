@@ -78,7 +78,6 @@
   // Short function to mark two data points in the set
   function markTwoDataPoints(){
     var chartType = document.getElementById("chartType").innerHTML;
-    console.log(chartType);
 
     // First we need to randomly choose two data points to select:
     arrayOfChosenDataPoints = generateDifferentRandomNumbers(10, 2);
@@ -95,7 +94,7 @@
       var secondCorrectNumber = document.getElementById("secondCorrectNumber");
       secondCorrectNumber.innerHTML = (secondMarkedNode.offsetWidth-10) / 5;
 
-    } else if (chartType == "Circle Chart"){
+    } else if ((chartType == "Circle Chart") || (chartType == "Scattered Circle Chart")){
       var firstMarkedNode;
       var secondMarkedNode;
       // Marking the dot visualizations:
@@ -129,7 +128,6 @@
   function continueToNextVisualization(visualizationType){
     // Looking at the user's answer:
     var usersRatio = document.getElementById("percentage").value;
-    console.log("User's ratio is: " + usersRatio);
     // Looking at the actual answer:
     var firstCorrectNumber = document.getElementById("firstCorrectNumber").innerHTML;
     var secondCorrectNumber = document.getElementById("secondCorrectNumber").innerHTML;
@@ -139,7 +137,6 @@
     } else {
       var actualRatio = Math.ceil((secondCorrectNumber/firstCorrectNumber) * 100);
     }
-    console.log("Actual ratio is: " + actualRatio);
     
     // Calculating log base 2 error
     var ratio = usersRatio - actualRatio;
@@ -148,7 +145,6 @@
     var logOfAnswer = Math.log(addOneEighth);
     var logOfTwo = Math.log(2);
     var logBase2Error = (logOfAnswer/logOfTwo);
-    console.log("Log base 2 of error is: " + logBase2Error);
     
     // Getting current trial number:
     trialNumber = sessionStorage.getItem('trialNumber');
@@ -159,7 +155,6 @@
 
     // Array holds: UUID, trialNumber, visualizationType, truePercent, reportedPercent, error
     resultsArray = [sessionStorage.getItem('uuid'), sessionStorage.getItem('trialNumber'), visualizationType, actualRatio, usersRatio, logBase2Error]
-    console.log("Results array addition: " + resultsArray);
 
     // Saving this results array in the session:
     sessionStorage.setItem('results-' + trialNumber, resultsArray);
@@ -205,6 +200,20 @@
 
 
 
+  // This prevents the user from leaving the box blank
+  // and prevents them from giving something that's not a number
+  function validateForm() {
+    var usersRatio = document.getElementById("percentage").value;
+    if (usersRatio==null || usersRatio== "" || isNaN(usersRatio)) {
+      alert("Please give a number as your answer.");
+      return false;
+    } else return true;
+  }
+
+
+
+
+
   // This function will display the results of all of our trials:
   // Reference: http://stackoverflow.com/questions/11958641/print-out-javascript-array-in-table
   function displayResults(){
@@ -238,6 +247,31 @@
 
     // Append to the table on the screen
     $table.appendTo($("#resultsDiv"));
+
+    // This will email me the data from the last page
+    // Reference: https://medium.com/@mariusc23/send-an-email-using-only-javascript-b53319616782
+    $.ajax({
+      type: "POST",
+      url: "https://mandrillapp.com/api/1.0/messages/send.json",
+      data: {
+        'key': 'LJg9w_7e5HyL8045L-BjQA',
+        'message': {
+          'from_email': 'cjaiello@wpi.edu',
+          'to': [
+              {
+                'email': 'cjaiello@wpi.edu',
+                'type': 'to'
+              },
+            ],
+          'autotext': 'true',
+          'subject': 'Data Visualization Project 5 Data',
+          'html': JSON.stringify(arrayOfStringsOfData)
+        }
+      }
+     }).done(function(response) {
+       console.log(JSON.stringify(arrayOfStringsOfData));
+     });
+
   }
 
 
@@ -284,14 +318,11 @@
   var questionText = document.getElementById("question");
   questionText.innerHTML = "Make note of the two data points marked with asterisks (*). What percentage is the smaller data point of the larger data point?";
 
-    var w = 400;
+    var w = 900;
     var h = 500;
 
     var x = d3.scale.linear().range([0, w-50]),
         y = d3.scale.ordinal().rangeRoundBands([0, h-50], .1);
-
-    var xAxis = d3.svg.axis().scale(x).orient("top").tickSize(-h),
-        yAxis = d3.svg.axis().scale(y).orient("left").tickSize(0);
 
     var svg = d3.select("body").append("svg")
         .attr("class", "chart")
@@ -304,7 +335,7 @@
       .selectAll("div")
       .data(data)
       .enter().append("div")
-      .style("width", function(d) { return d * 5 + "px"; })
+      .style("width", function(d) { return d * 8 + "px"; })
       .style("height", "20px");
 }
 
@@ -313,7 +344,7 @@
 
 
 
-/// This function will build the dot visualization
+// This function will build the dot visualization
 function buildCircleVis(data){
   // Now let's turn them into circles, because
   // for some reason Christina weirdly likes circles
@@ -332,7 +363,7 @@ function buildCircleVis(data){
   var svg = d3.select(".chart")
             .append("svg")
             .attr("class", "circleChart")
-            .attr("width",  600)
+            .attr("width",  900)
             .attr("height", 350);
 
   // generate circles 
@@ -342,10 +373,10 @@ function buildCircleVis(data){
      .append("circle")
      .attr("cx", function(d, i) {
             console.log(i);
-            return (((i+1) * 50)); })
+            return (((i+1) * 80)); })
      .attr("cy", 175)
      .attr("r", function(d) {
-            return Math.ceil(d / 4); })
+            return Math.ceil(d / 3); })
      .attr("fill", "white");
 
     console.log("Done");
@@ -372,9 +403,13 @@ function buildCircleVis(data){
   // This will get the current viz type and pass it into
   // a function that will load our next visualization:
   function loadNextVis(){
-    var previousChartType = document.getElementById("chartType").innerHTML;
-    continueToNextVisualization(previousChartType);
+    if(validateForm()){
+      var previousChartType = document.getElementById("chartType").innerHTML;
+      continueToNextVisualization(previousChartType);
+    }
   }
+
+
 
 
 
@@ -386,20 +421,15 @@ function buildCircleVis(data){
 
     // Get our list of random numbers:
     var stringOfNumbers = sessionStorage.getItem("numbers");
-    console.log(stringOfNumbers);
     var storedNumbers = JSON.parse(stringOfNumbers);
-    console.log(storedNumbers);
 
     // Based on the random number, pick a chart type:
-    if(storedNumbers[trialNumber] < 0){
-      console.log("We are building a bar chart!");
+    if(storedNumbers[trialNumber] < 20){
       buildBarVis(generateAnyRandomNumbers(100, 10));
-    } else if (storedNumbers[trialNumber] < 0){
-      console.log("We are building a circle chart!");
+    } else if (storedNumbers[trialNumber] < 40){
       buildCircleVis(generateAnyRandomNumbers(100, 10));
     } else {
-      console.log("We are building the third visualization type!");
-      buildPieVis(generateAnyRandomNumbers(100, 10));
+      buildScatteredCircleVis(generateAnyRandomNumbers(100, 10));
     }
     markTwoDataPoints();
   }
@@ -408,85 +438,43 @@ function buildCircleVis(data){
 
 
 
-  // Builds pie chart visualization
-  function buildPieVis(data) {
-    var chartType = document.getElementById("chartType");
-    chartType.innerHTML = "Pie Chart";
+// This function will build the dot visualization
+function buildScatteredCircleVis(data){
+  // Now let's turn them into circles, because
+  // for some reason Christina weirdly likes circles
+  // although this will probably prove they're bad practice to use...
+  // Aww.
 
-    // Changing the text of the directions based on the visualization
-    var questionText = document.getElementById("question");
-    questionText.innerHTML = "Make note of the two data points that are marked with an asterisk (*). What percentage is the smaller data point of the larger data point?";
+  var chartType = document.getElementById("chartType");
+  chartType.innerHTML = "Scattered Circle Chart";
 
-    console.log(data);
+  // Changing the text of the directions based on the visualization
+  var questionText = document.getElementById("question");
+  questionText.innerHTML = "Make note of the two data points that are gray. What percentage is the smaller data point of the larger data point?";
+
+  var svg = d3.select(".chart")
+            .append("svg")
+            .attr("class", "circleChart")
+            .attr("width",  900)
+            .attr("height", 350);
+
+  // generate circles 
+  svg.selectAll("circle")
+     .data(data)
+     .enter()
+     .append("circle")
+     .attr("cx", function(d, i) {
+            return (((i+1) * 80)); })
+     .attr("cy", function(d){
+      return d * 2;
+    })
+     .attr("r", function(d) {
+            return Math.ceil(d / 3); })
+     .attr("fill", "white");
+  }
 
 
-    // Width, height, and radius for pie chart
-    var width = 400,
-    height = 300,
-    radius = Math.min(width, height) / 2;
 
-    var centerPlacement = width / 2;
 
-    // Outer and inner radii
-    var outerRadius = 0;
-    var innerRadius = 0;    
 
-    console.log("Data is:");
-    console.log(data);
-    console.log("d3.select(.chart) is:");
-    console.log(d3.select(".chart"));
-
-    // Adding svg element to body, setting its width and height,
-    // and moving it to a certain location on the screen
-    var vis = d3.select(".chart")
-    .data(data)
-    .append("svg:svg") 
-    .attr("class", "pieChart")
-    .attr("width", width)
-    .attr("height", height)
-    .append("svg:g") 
-    .attr("transform", "translate(" + centerPlacement + "," + centerPlacement + ")");
-
-    console.log("Vis");
-    console.log(vis);
-
-    // Setting inner and outer radii for each arc piece
-    var arc = d3.svg.arc()
-    .innerRadius(innerRadius)
-    .outerRadius(outerRadius);
-
-    console.log(arc);
-
-    // Selecting a pie chart
-    var pie = d3.layout.pie()
-          .value(function(d) { 
-            console.log("D is: " + d);
-            return d; 
-          });
-
-    console.log("Pie:");
-    console.log(pie);
-
-    /* Selects all slices in g, associates pie data, 
-     * makes g elements for each item in the array,
-     * creates groups to hold each slice,
-     * and adds the class "slice" to each slice 
-     * for styling purposes
-     */
-    var arcs = vis.selectAll(".arc") 
-    .data(pie(data))
-    .enter().append("g")
-    .attr("class", "arc");
-
-    console.log("Arcs:");
-    console.log(arcs);
-
-    // Setting slice colors and creating SVG path
-    arcs.append("path")
-    .attr("d", arc)
-    .attr("fill", "red" );
-
-    console.log("Arcs:");
-    console.log(arcs);
-
-    }
+  

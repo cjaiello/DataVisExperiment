@@ -33,7 +33,9 @@
 <script>
     // Setting h1 to have the trial number in it:
     trialNumber = sessionStorage.getItem('trialNumber');
+    console.log(trialNumber);
     document.getElementById("trialNumberLabel").innerHTML = "Trial Number " + trialNumber;
+    console.log(document.getElementById("trialNumberLabel").innerHTML);
 
     // This will pick which visualization to build right now, based
     // on the trial number:
@@ -43,7 +45,10 @@
     $("#percentage").keypress(function(e) {
       if (e.keyCode == 13) {
         event.preventDefault();
-        continueToNextVisualization('bar');
+        // Check if input is valid:
+        if(validateForm()){
+          continueToNextVisualization('bar');
+        }
       }
     });
 
