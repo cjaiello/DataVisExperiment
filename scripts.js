@@ -533,35 +533,50 @@ function buildScatteredCircleVis(data){
 
     // Adding a place to put our lines into
     var line = chart.selectAll("g")
-      .data(arrayOfAllValues)
       .enter().append("g")
       .attr("transform", "translate(0," + height + ")");
 
-    // Sorting our array by error (smallest to largest)
+    // Sorting our arrays by error (smallest to largest)
+    arrayOfAllValues[0].sort(function(a,b) {
+      return parseFloat(a[5],10) - parseFloat(b[5],10);
+    });
+    arrayOfAllValues[1].sort(function(a,b) {
+      return parseFloat(a[5],10) - parseFloat(b[5],10);
+    });
     arrayOfAllValues[2].sort(function(a,b) {
       return parseFloat(a[5],10) - parseFloat(b[5],10);
     });
 
-    console.log("Sorted?");
-    console.log(arrayOfAllValues[2]);
-    
-    var max = d3.max(arrayOfAllValues[0], function(d) {
-      console.log("d is:");
-      console.log(d);
-      return d3.max(d, function(e) { 
-        console.log("e is:");
-        console.log(e);
-        return d3.max(e); });
-    });
-
-    // Appending lines to the visualization
-    /*line.append("line")
-        .attr("x1", function(d) { return d.error; })
-        .attr("x2", 5)
-        .attr("y1", 5)
+    // Appending lines to the visualization:
+    // Results for bar chart:
+    line.append("line")
+        // Smallest error:
+        .attr("x1", arrayOfAllValues[0][0])
+        // Largest error:
+        .attr("x2", arrayOfAllValues[0][(arrayOfAllValues[0].length-1)])
+        .attr("y1", (height * (1/4))
         .attr("y2", 5)
-        .attr("height", function(d) { return height - y(d.value); })
-        .attr("width", x.rangeBand());*/
+        .attr("fill", "red");
+
+    // Results for circle chart:
+    line.append("line")
+        // Smallest error:
+        .attr("x1", arrayOfAllValues[1][0])
+        // Largest error:
+        .attr("x2", arrayOfAllValues[1][(arrayOfAllValues[1].length-1)])
+        .attr("y1", (height * (2/4))
+        .attr("y2", 5)
+        .attr("fill", "red");
+
+    // Results for scattered circle chart:
+    line.append("line")
+        // Smallest error:
+        .attr("x1", arrayOfAllValues[2][0])
+        // Largest error:
+        .attr("x2", arrayOfAllValues[2][(arrayOfAllValues[2].length-1)])
+        .attr("y1", (height * (2/4))
+        .attr("y2", 5)
+        .attr("fill", "red");
   }
 
 
