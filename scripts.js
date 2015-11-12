@@ -115,6 +115,9 @@
       firstCorrectNumber.innerHTML = firstMarkedNode;
       var secondCorrectNumber = document.getElementById("secondCorrectNumber");
       secondCorrectNumber.innerHTML = secondMarkedNode;
+      console.log("Correct numbers are:");
+      console.log(firstCorrectNumber.innerHTML);
+      console.log(secondCorrectNumber.innerHTML);
 
     }
   } 
@@ -129,14 +132,18 @@
     // Looking at the user's answer:
     var usersRatio = document.getElementById("percentage").value;
     // Looking at the actual answer:
-    var firstCorrectNumber = document.getElementById("firstCorrectNumber").innerHTML;
-    var secondCorrectNumber = document.getElementById("secondCorrectNumber").innerHTML;
+    var firstCorrectNumber = parseInt(document.getElementById("firstCorrectNumber").innerHTML);
+    console.log(firstCorrectNumber);
+    var secondCorrectNumber = parseInt(document.getElementById("secondCorrectNumber").innerHTML);
+    console.log(secondCorrectNumber);
     // Depending on which is larger, set that as the numerator:
     if(firstCorrectNumber < secondCorrectNumber){
       var actualRatio = Math.ceil((firstCorrectNumber/secondCorrectNumber) * 100);
     } else {
       var actualRatio = Math.ceil((secondCorrectNumber/firstCorrectNumber) * 100);
     }
+    console.log("My answer was:" + usersRatio);
+    console.log("Ratio is: " + actualRatio);
     
     // Calculating log base 2 error
     var ratio = usersRatio - actualRatio;
@@ -160,27 +167,26 @@
     sessionStorage.setItem('results-' + trialNumber, resultsArray);
 
     // Let's see what we have so far:
-    console.log("Entirety of results array is:");
     for(counter = 1; counter <= trialNumber; counter++){
       var trialToGet = 'results-' + counter;
-      console.log(trialToGet);
       var pastValue = sessionStorage.getItem(trialToGet);
-      console.log(pastValue);
     }
 
     // Increasing the trial number in the session:
     trialNumber = parseInt(trialNumber) + 1;
     sessionStorage.setItem('trialNumber', trialNumber);
-    console.log("Trial number is now: " + trialNumber);
 
-    // If we've done 60 trials, then we're done.
-    // Open the final page:
-    if(trialNumber > 60){
-      // Open the ending page:
-      window.open("end.html","_self");
-    } else {
-        location.reload();
-    }
+    setTimeout(function(){
+      //do what you need here
+      // If we've done 60 trials, then we're done.
+      // Open the final page:
+      if(trialNumber > 60){
+        // Open the ending page:
+        window.open("end.html","_self");
+      } else {
+          location.reload();
+      }
+    }, 5000);
   }
 
 
