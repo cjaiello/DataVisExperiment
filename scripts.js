@@ -512,6 +512,8 @@ function buildScatteredCircleVis(data){
 
     // Creating the base for our chart
     var chart = d3.select("#chart")
+    .append("svg")
+    .attr("class", "svgBox")
     .attr("width", width)
     .attr("height", height);
 
@@ -526,15 +528,14 @@ function buildScatteredCircleVis(data){
     .orient("bottom");
 
     // Actually appending the x-axis to the chart
-    chart.append("g")
+    /*chart.append("g")
     .attr("class", "xAxis")
     .attr("transform", "translate(0," + height + ")")
-    .call(xAxis);
+    .call(xAxis);*/
 
     // Adding a place to put our lines into
-    var line = chart.selectAll("g")
-      .enter().append("g")
-      .attr("transform", "translate(0," + height + ")");
+    var line = chart.append("g")
+      .attr("stroke", "black");
 
     // Sorting our arrays by error (smallest to largest)
     arrayOfAllValues[0].sort(function(a,b) {
@@ -551,32 +552,32 @@ function buildScatteredCircleVis(data){
     // Results for bar chart:
     line.append("line")
         // Smallest error:
-        .attr("x1", arrayOfAllValues[0][0])
+        .attr("x1", arrayOfAllValues[0][0][5] * 50)
         // Largest error:
-        .attr("x2", arrayOfAllValues[0][(arrayOfAllValues[0].length-1)])
-        .attr("y1", (height * (1/4))
-        .attr("y2", 5)
-        .attr("fill", "red");
+        .attr("x2", arrayOfAllValues[0][(arrayOfAllValues[0].length-1)][5] * 50)
+        .attr("y1", (height * (1/4)))
+        .attr("y2", (height * (1/4)))
+        .attr("stroke-width", "4");
 
     // Results for circle chart:
     line.append("line")
         // Smallest error:
-        .attr("x1", arrayOfAllValues[1][0])
+        .attr("x1", arrayOfAllValues[1][0][5] * 50)
         // Largest error:
-        .attr("x2", arrayOfAllValues[1][(arrayOfAllValues[1].length-1)])
-        .attr("y1", (height * (2/4))
-        .attr("y2", 5)
-        .attr("fill", "red");
+        .attr("x2", arrayOfAllValues[1][(arrayOfAllValues[1].length-1)][5] * 50)
+        .attr("y1", (height * (2/4)))
+        .attr("y2", (height * (2/4)))
+        .attr("stroke-width", "4");
 
     // Results for scattered circle chart:
     line.append("line")
         // Smallest error:
-        .attr("x1", arrayOfAllValues[2][0])
+        .attr("x1", arrayOfAllValues[2][0][5] * 50)
         // Largest error:
-        .attr("x2", arrayOfAllValues[2][(arrayOfAllValues[2].length-1)])
-        .attr("y1", (height * (2/4))
-        .attr("y2", 5)
-        .attr("fill", "red");
+        .attr("x2", arrayOfAllValues[2][(arrayOfAllValues[2].length-1)][5] * 50)
+        .attr("y1", (height * (3/4)))
+        .attr("y2", (height * (3/4)))
+        .attr("stroke-width", "4");
   }
 
 
