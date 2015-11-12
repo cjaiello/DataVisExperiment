@@ -133,9 +133,9 @@
     var secondCorrectNumber = document.getElementById("secondCorrectNumber").innerHTML;
     // Depending on which is larger, set that as the numerator:
     if(firstCorrectNumber < secondCorrectNumber){
-      var actualRatio = Math.ceil((firstCorrectNumber/secondCorrectNumber) * 50 + 250);
+      var actualRatio = Math.ceil((firstCorrectNumber/secondCorrectNumber) * 100);
     } else {
-      var actualRatio = Math.ceil((secondCorrectNumber/firstCorrectNumber) * 50 + 250);
+      var actualRatio = Math.ceil((secondCorrectNumber/firstCorrectNumber) * 100);
     }
     
     // Calculating log base 2 error
