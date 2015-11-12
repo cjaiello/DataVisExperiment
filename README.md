@@ -1,33 +1,33 @@
 Assignment 5 - Replicating a Classic Experiment
 Christina Aiello, cjaiello  
---------------------------------------------------------------------------------
+--------------------------
 
------------------------------- Working Link to Visualization ------------------------------
+--- Working Link to Visualization ---
 
 ["Replicating a Classic Experiment by Christina Aiello"](http://cjaiello.github.io/05-Experiment/index.html)
 
 
 
------------------------------- Concise Description and Screenshot ------------------------------
+--- Concise Description and Screenshot ---
 
 This application allows a user 60 opportunities to compare two data points within a set of ten randomly-generated data points. There are three types of visualizations: bar charts, what I've called "circle charts," and what I've called "scattered circle charts." The beginning screen has directions for the user. The next 60 screens show a randomly-chosen chart type with random data values and two randomly-chosen data points for the user to compare. At the end, on the last page the user is shown a table that plots the log-base-2 error ranges for each type of chart (based on the user's trials), and the last page also shows the user the individual results for each trial. When the user has completed all 60 trials and gets to the ending screen, an email is generated with the data for each trial, and that data is emailed to Christina's WPI email address.
 
-![Bar Chart](img/beginningscreen.jpg)
-![Bar Chart](img/barchart.jpg)
-![Circle Chart](img/circlechart.jpg)
-![Scattered Circle Chart](img/scatteredcirclechart.jpg)
-![Log Base 2 Error](img/log-base-2-error.jpg)
-![Results](img/results.jpg)
+![Bar Chart](img/beginningscreen.JPG)
+![Bar Chart](img/barchart.JPG)
+![Circle Chart](img/circlechart.JPG)
+![Scattered Circle Chart](img/scatteredcirclechart.JPG)
+![Log Base 2 Error](img/log-base-2-error.JPG)
+![Results](img/results.JPG)
 
 
------------------------------- Visualizations Tested and the Results (Best to Worst, Ranked by Average Error) ------------------------------
+--- Visualizations Tested and the Results (Best to Worst, Ranked by Average Error) ---
 
 
 !!! Use Bootstrapped 95\% confidence intervals for your error upper and lower bounds. Include these in your figures.
 
 
 
------------------------------- Technical Achievements ------------------------------
+--- Technical Achievements ---
 
 1. My constructLatinSquareDesign() method randomly arranges the numbers 1-60 in an array. I then created a function that chooses a visualization type based on the number provided. If the number is between 0 and 19, I make a bar chart. If the number is between 20 and 39, I make the circles chart. If the number is between 40 and 59, I made the third visualization type. Finally, I iterate through this array of unique random numbers that range from 1 to 60 (For example: [12, 40, 52, 57, 25, 43, 9, 4, 56, 2, 16, 49, 50, 17, 44, 46, 31, 35, 51, 5, 1, 10, 37, 36, 60, 34, 19, 30, 33, 20, 24, 22, 11, 41, 55, 3, 54, 14, 7, 45, 21, 47, 28, 58, 32, 26, 48, 13, 18, 27, 38, 42, 59, 8, 6, 15, 53, 23, 29, 39]), and I choose the visualization type based on the randomly-chosen unique number in that place. See my constructLatinSquareDesign() function and my pickVizToBuild() function in scripts.js for more information. :) This guarantees that the user sees 20 of each visualization type, and it shows these visualizations in a random order.
 
@@ -49,7 +49,7 @@ This application allows a user 60 opportunities to compare two data points withi
 
 10. Lastly, I made an external stylesheet and an external JavaScript sheet, making my actual HTML pages less clunky.
 
------------------------------- Design Achievements ------------------------------
+--- Design Achievements ---
 
 1. For ease of use, the user can either hit the "submit" button or just press "enter" after typing in a number to submit.
 
@@ -57,7 +57,7 @@ This application allows a user 60 opportunities to compare two data points withi
 
 3. I chose to compare bar charts with what I've called "circle charts," of which I made two versions (regular circle charts and what I've called "scattered" circle charts). Regarding the bar charts, I'd like to see how they perform generally in comparison to the two circle charts. Regarding the circle charts, there are two versions: One version is arranged in a straight line, and the second version ("scattered circle charts") is arranged in relation to the data (If the data is "10," for example, the cy value is (10 * 2). If the data is 100, the cy value is (100 * 2)). I wanted to see if aligning all of the circles in a straight line would improve the accuracy of the user's answers.
 
------------------------------- References ------------------------------
+--- References ---
 
 1. I referenced old assignments when doing this, but I also want to credit the individuals whose work I referenced when I originally did those assignments:
 Bar Chart Reference: 
