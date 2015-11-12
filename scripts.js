@@ -325,7 +325,7 @@
 
   // Changing the text of the directions based on the visualization
   var questionText = document.getElementById("question");
-  questionText.innerHTML = "Make note of the two data points marked with asterisks (*). What percentage is the smaller data point of the larger data point?";
+  questionText.innerHTML = "Make note of the two data points marked with asterisks (*). What percentage is the smaller data point of the larger data point? (Ex: If you think the smaller one is half the size of the larger one, write 50. If you think the smaller one is a quarter of the larger one, write 25.)";
 
     var w = 900;
     var h = 400;
@@ -358,7 +358,7 @@ function buildCircleVis(data){
 
   // Changing the text of the directions based on the visualization
   var questionText = document.getElementById("question");
-  questionText.innerHTML = "Make note of the two data points that are gray. What percentage is the smaller data point of the larger data point?";
+  questionText.innerHTML = "Make note of the two data points that are gray. What percentage is the smaller data point of the larger data point?  (Ex: If you think the smaller one is half the size of the larger one, write 50. If you think the smaller one is a quarter of the larger one, write 25.)";
 
   console.log(data);
 
@@ -452,7 +452,7 @@ function buildScatteredCircleVis(data){
 
   // Changing the text of the directions based on the visualization
   var questionText = document.getElementById("question");
-  questionText.innerHTML = "Make note of the two data points that are gray. What percentage is the smaller data point of the larger data point?";
+  questionText.innerHTML = "Make note of the two data points that are gray. What percentage is the smaller data point of the larger data point? (Ex: If you think the smaller one is half the size of the larger one, write 50. If you think the smaller one is a quarter of the larger one, write 25.)";
 
   var svg = d3.select(".chart")
             .append("svg")
