@@ -256,7 +256,7 @@
 
     // This will email me the data from the last page
     // Reference: https://medium.com/@mariusc23/send-an-email-using-only-javascript-b53319616782
-    /*$.ajax({
+    $.ajax({
       type: "POST",
       url: "https://mandrillapp.com/api/1.0/messages/send.json",
       data: {
@@ -276,8 +276,7 @@
       }
      }).done(function(response) {
        console.log(JSON.stringify(arrayOfTrialData));
-     });*/
-      console.log("UNCOMMENT THE AJAX");
+     });
 
      // Lastly, let's display the final results:
      buildFinalResultsViz(arrayOfTrialData);
