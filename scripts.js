@@ -175,7 +175,7 @@
 
     // If we've done 60 trials, then we're done.
     // Open the final page:
-    if(trialNumber > 1){
+    if(trialNumber > 60){
       // Open the ending page:
       window.open("end.html","_self");
     } else {
