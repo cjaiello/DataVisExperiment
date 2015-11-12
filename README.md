@@ -3,19 +3,21 @@ Christina Aiello, cjaiello
 --------------------------------------------------------------------------------
 
 ------------------------------ Working Link to Visualization ------------------------------
+
 ["Replicating a Classic Experiment by Christina Aiello"](http://cjaiello.github.io/05-Experiment/index.html)
 
 
 
 ------------------------------ Concise Description and Screenshot ------------------------------
+
 This application allows a user 60 opportunities to compare two data points within a set of ten randomly-generated data points. There are three types of visualizations: bar charts, what I've called "circle charts," and what I've called "scattered circle charts." The beginning screen has directions for the user. The next 60 screens show a randomly-chosen chart type with random data values and two randomly-chosen data points for the user to compare. At the end, on the last page the user is shown a table that plots the log-base-2 error ranges for each type of chart (based on the user's trials), and the last page also shows the user the individual results for each trial. When the user has completed all 60 trials and gets to the ending screen, an email is generated with the data for each trial, and that data is emailed to Christina's WPI email address.
 
-![Bar Chart](beginningscreen.jpg)
-![Bar Chart](barchart.jpg)
-![Circle Chart](circlechart.jpg)
-![Scattered Circle Chart](scatteredcirclechart.jpg)
-![Log Base 2 Error](log-base-2-error.jpg)
-![Results](results.jpg)
+![Bar Chart](img/beginningscreen.jpg)
+![Bar Chart](img/barchart.jpg)
+![Circle Chart](img/circlechart.jpg)
+![Scattered Circle Chart](img/scatteredcirclechart.jpg)
+![Log Base 2 Error](img/log-base-2-error.jpg)
+![Results](img/results.jpg)
 
 
 ------------------------------ Visualizations Tested and the Results (Best to Worst, Ranked by Average Error) ------------------------------
