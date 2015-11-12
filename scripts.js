@@ -176,17 +176,14 @@
     trialNumber = parseInt(trialNumber) + 1;
     sessionStorage.setItem('trialNumber', trialNumber);
 
-    setTimeout(function(){
-      //do what you need here
-      // If we've done 60 trials, then we're done.
-      // Open the final page:
-      if(trialNumber > 60){
-        // Open the ending page:
-        window.open("end.html","_self");
-      } else {
-          location.reload();
-      }
-    }, 5000);
+    // If we've done 60 trials, then we're done.
+    // Open the final page:
+    if(trialNumber > 60){
+      // Open the ending page:
+      window.open("end.html","_self");
+    } else {
+        location.reload();
+    }
   }
 
 
