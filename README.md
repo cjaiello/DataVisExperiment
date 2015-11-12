@@ -12,11 +12,22 @@ Christina Aiello, cjaiello
 
 This application allows a user 60 opportunities to compare two data points within a set of ten randomly-generated data points. There are three types of visualizations: bar charts, what I've called "circle charts," and what I've called "scattered circle charts." The beginning screen has directions for the user. The next 60 screens show a randomly-chosen chart type with random data values and two randomly-chosen data points for the user to compare. At the end, on the last page the user is shown a table that plots the log-base-2 error ranges for each type of chart (based on the user's trials), and the last page also shows the user the individual results for each trial. When the user has completed all 60 trials and gets to the ending screen, an email is generated with the data for each trial, and that data is emailed to Christina's WPI email address.
 
+Beginning Screen:
 ![Bar Chart](img/beginningscreen.JPG)
+
+Bar Chart:
 ![Bar Chart](img/barchart.JPG)
+
+Circle Chart:
 ![Circle Chart](img/circlechart.JPG)
+
+Scattered Circle Chart:
 ![Scattered Circle Chart](img/scatteredcirclechart.JPG)
-![Log Base 2 Error](img/log-base-2-error.JPG)
+
+Log Base 2 Error:
+![Log Base 2 Error](img/log-base-2-error-plotting.JPG)
+
+Results:
 ![Results](img/results.JPG)
 
 
