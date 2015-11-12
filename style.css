@@ -59,6 +59,20 @@ body {
   text-align: center;
 }
 
+#endingChart {
+  background-color: #000028;
+  width: 1150px;
+  margin: 30px;
+}
+
+.svgBox {
+  margin: 30px;
+}
+
+.labelForEndChart {
+  font-size: 12px;
+}
+
 .chart div {
   font: 10px sans-serif;
   background-color: white;

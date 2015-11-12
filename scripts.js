@@ -133,9 +133,9 @@
     var secondCorrectNumber = document.getElementById("secondCorrectNumber").innerHTML;
     // Depending on which is larger, set that as the numerator:
     if(firstCorrectNumber < secondCorrectNumber){
-      var actualRatio = Math.ceil((firstCorrectNumber/secondCorrectNumber) * 100);
+      var actualRatio = Math.ceil((firstCorrectNumber/secondCorrectNumber) * 50 + 250);
     } else {
-      var actualRatio = Math.ceil((secondCorrectNumber/firstCorrectNumber) * 100);
+      var actualRatio = Math.ceil((secondCorrectNumber/firstCorrectNumber) * 50 + 250);
     }
     
     // Calculating log base 2 error
@@ -256,7 +256,7 @@
 
     // This will email me the data from the last page
     // Reference: https://medium.com/@mariusc23/send-an-email-using-only-javascript-b53319616782
-    $.ajax({
+    /*$.ajax({
       type: "POST",
       url: "https://mandrillapp.com/api/1.0/messages/send.json",
       data: {
@@ -276,7 +276,8 @@
       }
      }).done(function(response) {
        console.log(JSON.stringify(arrayOfTrialData));
-     });
+     });*/
+      console.log("UNCOMMENT THE AJAX");
 
      // Lastly, let's display the final results:
      buildFinalResultsViz(arrayOfTrialData);
@@ -479,7 +480,7 @@ function buildScatteredCircleVis(data){
   // This function will build the final visualzation
   // to depict how the user did
   function buildFinalResultsViz(data){
-    var width = 400;
+    var width = 1140;
     var height = 400;
 
     var barChartResults = new Array();
@@ -511,31 +512,14 @@ function buildScatteredCircleVis(data){
     console.log(arrayOfAllValues);
 
     // Creating the base for our chart
-    var chart = d3.select("#chart")
+    var chart = d3.select("#endingChart")
     .append("svg")
     .attr("class", "svgBox")
     .attr("width", width)
     .attr("height", height);
 
-    // Creating a scale for the x-axis
-    var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .1);
-
-    // Creating the x-axis and assigning it
-    // to the bottom of the graph
-    var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom");
-
-    // Actually appending the x-axis to the chart
-    /*chart.append("g")
-    .attr("class", "xAxis")
-    .attr("transform", "translate(0," + height + ")")
-    .call(xAxis);*/
-
     // Adding a place to put our lines into
-    var line = chart.append("g")
-      .attr("stroke", "black");
+    var line = chart.append("g");
 
     // Sorting our arrays by error (smallest to largest)
     arrayOfAllValues[0].sort(function(a,b) {
@@ -548,37 +532,113 @@ function buildScatteredCircleVis(data){
       return parseFloat(a[5],10) - parseFloat(b[5],10);
     });
 
+    line.append("text")
+        .attr("fill", "white")
+        .attr("stroke", "white")
+        .attr("dx", 470)
+        .attr("dy", 20)
+        .text("Log-Base-2 Error Plotting");
+
     // Appending lines to the visualization:
     // Results for bar chart:
     line.append("line")
+        .attr("stroke", "#76ddf2")
+        .attr("class", "lineForBarChart")
         // Smallest error:
-        .attr("x1", arrayOfAllValues[0][0][5] * 50)
+        .attr("x1", arrayOfAllValues[0][0][5] * 50 + 250)
         // Largest error:
-        .attr("x2", arrayOfAllValues[0][(arrayOfAllValues[0].length-1)][5] * 50)
+        .attr("x2", arrayOfAllValues[0][(arrayOfAllValues[0].length-1)][5] * 50 + 250)
         .attr("y1", (height * (1/4)))
         .attr("y2", (height * (1/4)))
         .attr("stroke-width", "4");
 
+    // Left-side number label for the bar chart line
+    line.append("text")
+        .attr("stroke", "white")
+        .attr("class", "labelForEndChart")
+        .attr("dx", (arrayOfAllValues[0][0][5] * 50 + 250) - 25)
+        .attr("dy", ((height * (1/4)) + 20))
+        .text(parseFloat(arrayOfAllValues[0][0][5]).toFixed(2));
+
+    // Right-side number label for the bar chart line
+    line.append("text")
+        .attr("stroke", "white")
+        .attr("class", "labelForEndChart")
+        .attr("dx", (arrayOfAllValues[0][(arrayOfAllValues[0].length-1)][5] * 50 + 250))
+        .attr("dy", ((height * (1/4)) + 20))
+        .text(parseFloat(arrayOfAllValues[0][(arrayOfAllValues[0].length-1)][5]).toFixed(2));
+
     // Results for circle chart:
     line.append("line")
+        .attr("stroke", "#bd5fef")
         // Smallest error:
-        .attr("x1", arrayOfAllValues[1][0][5] * 50)
+        .attr("x1", arrayOfAllValues[1][0][5] * 50 + 250)
         // Largest error:
-        .attr("x2", arrayOfAllValues[1][(arrayOfAllValues[1].length-1)][5] * 50)
+        .attr("x2", arrayOfAllValues[1][(arrayOfAllValues[1].length-1)][5] * 50 + 250)
         .attr("y1", (height * (2/4)))
         .attr("y2", (height * (2/4)))
         .attr("stroke-width", "4");
 
+    // Left-side number label for the bar chart line
+    line.append("text")
+        .attr("stroke", "white")
+        .attr("class", "labelForEndChart")
+        .attr("dx", (arrayOfAllValues[1][0][5] * 50 + 250) - 25)
+        .attr("dy", ((height * (2/4)) + 20))
+        .text(parseFloat(arrayOfAllValues[1][0][5]).toFixed(2));
+
+    // Right-side number label for the circle chart line
+    line.append("text")
+        .attr("stroke", "white")
+        .attr("class", "labelForEndChart")
+        .attr("dx", (arrayOfAllValues[1][(arrayOfAllValues[1].length-1)][5] * 50 + 250))
+        .attr("dy", ((height * (2/4)+20)))
+        .text(parseFloat(arrayOfAllValues[1][(arrayOfAllValues[1].length-1)][5]).toFixed(2));
+
     // Results for scattered circle chart:
     line.append("line")
+        .attr("stroke", "#2080f7")
         // Smallest error:
-        .attr("x1", arrayOfAllValues[2][0][5] * 50)
+        .attr("x1", arrayOfAllValues[2][0][5] * 50 + 250)
         // Largest error:
-        .attr("x2", arrayOfAllValues[2][(arrayOfAllValues[2].length-1)][5] * 50)
+        .attr("x2", arrayOfAllValues[2][(arrayOfAllValues[2].length-1)][5] * 50 + 250)
         .attr("y1", (height * (3/4)))
         .attr("y2", (height * (3/4)))
         .attr("stroke-width", "4");
-  }
+
+    // Left-side number label for the bar chart line
+    line.append("text")
+        .attr("stroke", "white")
+        .attr("class", "labelForEndChart")
+        .attr("dx", (arrayOfAllValues[2][0][5] * 50 + 250) - 25)
+        .attr("dy", ((height * (3/4)) + 20))
+        .text(parseFloat(arrayOfAllValues[2][0][5]).toFixed(2));
+
+    // Right-side number label for the circle chart line
+    line.append("text")
+        .attr("stroke", "white")
+        .attr("class", "labelForEndChart")
+        .attr("dx", (arrayOfAllValues[2][(arrayOfAllValues[2].length-1)][5] * 50 + 250))
+        .attr("dy", ((height * (3/4) + 20)))
+        .text(parseFloat(arrayOfAllValues[2][(arrayOfAllValues[2].length-1)][5]).toFixed(2));
+
+    // Graph color labels
+    line.append("text")
+        .attr("fill", "#76ddf2")
+        .attr("dx", 0)
+        .attr("dy", ((height * (1/4) - 20)))
+        .text("Bar Chart:");
+    line.append("text")
+        .attr("fill", "#bd5fef")
+        .attr("dx", 0)
+        .attr("dy", ((height * (2/4) - 20)))
+        .text("Circle Chart:");
+    line.append("text")
+        .attr("fill", "#2080f7")
+        .attr("dx", 0)
+        .attr("dy", ((height * (3/4) - 20)))
+        .text("Scattered Circle Chart:");
+  } 
 
 
 
