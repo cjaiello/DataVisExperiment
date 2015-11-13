@@ -146,8 +146,13 @@
     console.log("Ratio is: " + actualRatio);
     
     // Calculating log base 2 error
+    // Formula:
+    // log(|judged percent - true percent| + (1/8))/log(2)
+    // Step 1: judged percent - true percent
     var ratio = usersRatio - actualRatio;
+    // Step 2: Absolute value
     var absoluteValueOfRatio = Math.abs(ratio);
+    // Step 3: + (1/8)
     var addOneEighth = absoluteValueOfRatio+(1/8);
     var logOfAnswer = Math.log(addOneEighth);
     var logOfTwo = Math.log(2);
@@ -428,9 +433,9 @@ function buildCircleVis(data){
     var storedNumbers = JSON.parse(stringOfNumbers);
 
     // Based on the random number, pick a chart type:
-    if(storedNumbers[trialNumber] < 0){
+    if(storedNumbers[trialNumber] < 20){
       buildBarVis(generateAnyRandomNumbers(100, 10));
-    } else if (storedNumbers[trialNumber] < 0){
+    } else if (storedNumbers[trialNumber] < 40){
       buildCircleVis(generateAnyRandomNumbers(100, 10));
     } else {
       buildScatteredCircleVis(generateAnyRandomNumbers(100, 10));
