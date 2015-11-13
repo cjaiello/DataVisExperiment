@@ -46,7 +46,7 @@
         event.preventDefault();
         // Check if input is valid:
         if(validateForm()){
-          continueToNextVisualization('bar');
+          continueToNextVisualization(document.getElementById("chartType").innerHTML);
         }
       }
     });

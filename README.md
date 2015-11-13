@@ -42,17 +42,29 @@ Log Base 2 Error:
 Results Table For User's Trials:
 ![Results](img/results.JPG)
 
+---------------------------------
+
 
 --- Visualizations Tested and the Results (Best to Worst, Ranked by Average Error) ---
 
 
 !!! Use Bootstrapped 95\% confidence intervals for your error upper and lower bounds. Include these in your figures.
 
+![Average Log Base 2 Error and Average Percent Error](img/error_tables_and_graphs.JPG)
+With 60 trials per type of chart, I had to only use 57 of my 60 data points in the 95% confidence interval. I dropped two from the bottom and one from the top.
+
+I included both the average percent error ((abs(actual - perceived)/actual) and the log-base-2 error in my data, however as mentioned in the project description, we should focus on the log-base-2 error.
+
+Surprisingly the two versions of circle charts (the scattered circle chart and the regular one) only slightly underperformed in comparison to the bar chart, according to the log base 2 error. The bar chart had the lowest average log base 2 error (approx 3.07), the next best was the circle chart with an average log base 2 error of approx 3.16, and the scattered circle chart came in last at approx 3.17. One hypothesis I wanted to test was having circles in a line versus being scattered, with me expecting scattering to make it harder to compare sizes. Scattering circles did affect users' ability to compare sizes to some degree, but not by much. In addition, another hypothesis I wanted to test was how people compared squares/bars and circles. I expected the bars to perform better (and they did!).
+
+To see all data and the calculations I performed on the data (in addition to the charts I made about the data), see /data/data_from_all_trials_with_averages_and_graphs.csv. 
+To just see the raw data, see /data/data_from_all_trials.csv.
+
 
 
 --- Technical Achievements ---
 
-1. My constructLatinSquareDesign() method randomly arranges the numbers 1-60 in an array. I then created a function that chooses a visualization type based on the number provided. If the number is between 0 and 19, I make a bar chart. If the number is between 20 and 39, I make the circles chart. If the number is between 40 and 59, I made the third visualization type. Finally, I iterate through this array of unique random numbers that range from 1 to 60 (For example: [12, 40, 52, 57, 25, 43, 9, 4, 56, 2, 16, 49, 50, 17, 44, 46, 31, 35, 51, 5, 1, 10, 37, 36, 60, 34, 19, 30, 33, 20, 24, 22, 11, 41, 55, 3, 54, 14, 7, 45, 21, 47, 28, 58, 32, 26, 48, 13, 18, 27, 38, 42, 59, 8, 6, 15, 53, 23, 29, 39]), and I choose the visualization type based on the randomly-chosen unique number in that place. See my constructLatinSquareDesign() function and my pickVizToBuild() function in scripts.js for more information. :) This guarantees that the user sees 20 of each visualization type, and it shows these visualizations in a random order.
+1. My constructLatinSquareDesign() method randomly arranges the numbers 1-60 in an array. I then created a function that chooses a visualization type based on the number provided. If the number is between 1 and 20, I make a bar chart. If the number is between 21 and 40, I make the circles chart. If the number is between 41 and 60, I made the third visualization type. Finally, I iterate through this array of unique random numbers that range from 1 to 60 (For example: [12, 40, 52, 57, 25, 43, 9, 4, 56, 2, 16, 49, 50, 17, 44, 46, 31, 35, 51, 5, 1, 10, 37, 36, 60, 34, 19, 30, 33, 20, 24, 22, 11, 41, 55, 3, 54, 14, 7, 45, 21, 47, 28, 58, 32, 26, 48, 13, 18, 27, 38, 42, 59, 8, 6, 15, 53, 23, 29, 39]), and I choose the visualization type based on the randomly-chosen unique number in that place. See my constructLatinSquareDesign() function and my pickVizToBuild() function in scripts.js for more information. :) This guarantees that the user sees 20 of each visualization type, and it shows these visualizations in a random order.
 
 2. I used the app "mandrillapp.com" to have the end page (end.html) of my project, which displays the results to the user, also email me a copy of the results in JSON format.
 

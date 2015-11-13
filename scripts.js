@@ -433,9 +433,9 @@ function buildCircleVis(data){
     var storedNumbers = JSON.parse(stringOfNumbers);
 
     // Based on the random number, pick a chart type:
-    if(storedNumbers[trialNumber] < 20){
+    if(storedNumbers[trialNumber] <= 20){
       buildBarVis(generateAnyRandomNumbers(100, 10));
-    } else if (storedNumbers[trialNumber] < 40){
+    } else if (storedNumbers[trialNumber] <= 40){
       buildCircleVis(generateAnyRandomNumbers(100, 10));
     } else {
       buildScatteredCircleVis(generateAnyRandomNumbers(100, 10));
