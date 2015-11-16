@@ -8,9 +8,9 @@ Christina Aiello, cjaiello
 
 
 
---- Concise Description and Screenshot ---
+--- Concise Description and Screenshots ---
 
-This application allows a user 60 opportunities to compare two data points within a set of ten randomly-generated data points. There are three types of visualizations: bar charts, what I've called "circle charts," and what I've called "scattered circle charts." The beginning screen has directions for the user. The next 60 screens show a randomly-chosen chart type with random data values and two randomly-chosen data points for the user to compare. At the end, on the last page the user is shown a table that plots the log-base-2 error ranges for each type of chart (based on the user's trials), and the last page also shows the user the individual results for each trial. When the user has completed all 60 trials and gets to the ending screen, an email is generated with the data for each trial, and that data is emailed to Christina's WPI email address.
+This application allows a user 60 opportunities to compare two data points within a set of ten randomly-generated data points. There are three types of visualizations: bar charts, what I've called "circle charts," and what I've called "scattered circle charts." (See screenshots below.) The beginning screen has directions for the user. The next 60 screens show a randomly-chosen chart type with random data values and two randomly-chosen data points for the user to compare. At the end, on the last page the user is shown a table that plots the log-base-2 error ranges for each type of chart (based on the user's trials), and the last page also shows the user the individual results for each trial. When the user has completed all 60 trials and gets to the ending screen, an email is generated with the data for each trial, and that data is emailed to Christina's WPI email address.
 
 ---------------------------------
 
@@ -47,15 +47,16 @@ Results Table For User's Trials:
 
 --- Visualizations Tested and the Results (Best to Worst, Ranked by Average Error) ---
 
-
-!!! Use Bootstrapped 95\% confidence intervals for your error upper and lower bounds. Include these in your figures.
-
 ![Average Log Base 2 Error and Average Percent Error](img/error_tables_and_graphs.JPG)
 With 60 trials per type of chart, I had to only use 57 of my 60 data points in the 95% confidence interval. I dropped two from the bottom and one from the top.
 
 I included both the average percent error ((abs(actual - perceived)/actual) and the log-base-2 error in my data, however as mentioned in the project description, we should focus on the log-base-2 error.
 
-Surprisingly the two versions of circle charts (the scattered circle chart and the regular one) only slightly underperformed in comparison to the bar chart, according to the log base 2 error. The bar chart had the lowest average log base 2 error (approx 3.07), the next best was the circle chart with an average log base 2 error of approx 3.16, and the scattered circle chart came in last at approx 3.17. One hypothesis I wanted to test was having circles in a line versus being scattered, with me expecting scattering to make it harder to compare sizes. Scattering circles did affect users' ability to compare sizes to some degree, but not by much. In addition, another hypothesis I wanted to test was how people compared squares/bars and circles. I expected the bars to perform better (and they did!).
+Surprisingly the two versions of circle charts (the scattered circle chart and the regular one) only slightly underperformed in comparison to the bar chart, according to the log base 2 error. The bar chart had the lowest average log base 2 error (approx 3.07), the next best was the circle chart with an average log base 2 error of approx 3.16, and the scattered circle chart came in last at approx 3.17. 
+
+One hypothesis I wanted to test was having circles in a line versus being scattered, with me expecting scattering to make it harder to compare sizes. Scattering circles did affect users' ability to compare sizes to some degree, but not by much. 
+
+Another hypothesis I wanted to test was how people compared squares/bars and circles. I expected the bars to perform better due to what we've learned in class regarding how people perceive/are able to analyze circles versus rectangles/squares. (And yes, the bars did better than either of the circles!).
 
 To see all data and the calculations I performed on the data (in addition to the charts I made about the data), see /data/data_from_all_trials_with_averages_and_graphs.csv. 
 To just see the raw data, see /data/data_from_all_trials.csv.
@@ -64,7 +65,7 @@ To just see the raw data, see /data/data_from_all_trials.csv.
 
 --- Technical Achievements ---
 
-1. My constructLatinSquareDesign() method randomly arranges the numbers 1-60 in an array. I then created a function that chooses a visualization type based on the number provided. If the number is between 1 and 20, I make a bar chart. If the number is between 21 and 40, I make the circles chart. If the number is between 41 and 60, I made the third visualization type. Finally, I iterate through this array of unique random numbers that range from 1 to 60 (For example: [12, 40, 52, 57, 25, 43, 9, 4, 56, 2, 16, 49, 50, 17, 44, 46, 31, 35, 51, 5, 1, 10, 37, 36, 60, 34, 19, 30, 33, 20, 24, 22, 11, 41, 55, 3, 54, 14, 7, 45, 21, 47, 28, 58, 32, 26, 48, 13, 18, 27, 38, 42, 59, 8, 6, 15, 53, 23, 29, 39]), and I choose the visualization type based on the randomly-chosen unique number in that place. See my constructLatinSquareDesign() function and my pickVizToBuild() function in scripts.js for more information. :) This guarantees that the user sees 20 of each visualization type, and it shows these visualizations in a random order.
+1. My constructLatinSquareDesign() method randomly arranges the numbers 1-60 in an array. I then created a function that chooses a visualization type based on the number provided. If the number is between 1 and 20, I make a bar chart. If the number is between 21 and 40, I make the circles chart. If the number is between 41 and 60, I made the third visualization type. Finally, I iterate through this array of unique random numbers that range from 1 to 60 (For example: [12, 40, 52, 57, 25, 43, 9, 4, 56, 2, 16, 49, 50, 17, 44, 46, 31, 35, 51, 5, 1, 10, 37, 36, 60, 34, 19, 30, 33, 20, 24, 22, 11, 41, 55, 3, 54, 14, 7, 45, 21, 47, 28, 58, 32, 26, 48, 13, 18, 27, 38, 42, 59, 8, 6, 15, 53, 23, 29, 39]), and I choose the visualization type based on the randomly-chosen unique number in that place. See my constructLatinSquareDesign() function and my pickVizToBuild() function in scripts.js for more information. This guarantees that the user sees 20 of each visualization type, and it shows these visualizations in a random order.
 
 2. I used the app "mandrillapp.com" to have the end page (end.html) of my project, which displays the results to the user, also email me a copy of the results in JSON format.
 
@@ -76,7 +77,7 @@ To just see the raw data, see /data/data_from_all_trials.csv.
 
 6. The continueToNextVisualization function takes in the visualization type, and it scrapes the screen and gets info from the session for additional information (user's entered value, the values of the two data points in the chart), which is put into an array and stored in the session information.
 
-7. The session information holds an array for every trial (and its key is "results + TRIALNUMBER").
+7. The session information (stored in the browser) holds an array for every trial (and its key is "results + TRIALNUMBER").
 
 8. The user also cannot refresh the page to skip trials. Refreshing doesn't change the trial number. The number of trials only resets when you go back to the main screen.
 
